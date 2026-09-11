@@ -9,13 +9,13 @@ interface Props {
 const { currentLang = 'id' } = Astro.props;
 ---
 
-<div class="inline-flex items-center p-1 rounded-xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/60 shadow-sm" id="lang-toggle-container">
+<div class="inline-flex items-center h-9 p-0.5 rounded-xl bg-slate-100 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700/60 shadow-xs" id="lang-toggle-container">
   <!-- Indonesian Option -->
   <a
     href="/"
     id="lang-btn-id"
     title="Bahasa Indonesia"
-    class={`lang-switch-link flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${
+    class={`lang-switch-link flex items-center justify-center gap-1 h-full px-2.5 rounded-lg text-xs font-bold transition-all ${
       currentLang === 'id'
         ? 'bg-white dark:bg-indigo-600 text-slate-900 dark:text-white shadow-xs'
         : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
@@ -30,7 +30,7 @@ const { currentLang = 'id' } = Astro.props;
     href="/en/"
     id="lang-btn-en"
     title="English"
-    class={`lang-switch-link flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${
+    class={`lang-switch-link flex items-center justify-center gap-1 h-full px-2.5 rounded-lg text-xs font-bold transition-all ${
       currentLang === 'en'
         ? 'bg-white dark:bg-indigo-600 text-slate-900 dark:text-white shadow-xs'
         : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
