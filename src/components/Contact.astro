@@ -1,0 +1,221 @@
+---
+import { resumeData } from '../data/resume';
+---
+
+<section id="contact" class="py-24 relative border-t border-slate-800/80">
+  
+  <!-- Glowing Background Accent -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-t from-indigo-600/15 via-cyan-600/10 to-transparent rounded-full blur-[120px]"></div>
+  </div>
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-2xl mx-auto mb-16 reveal-on-scroll">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase tracking-widest mb-4 border border-emerald-500/25">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+        <span>Let's Build Something Great</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+        Siap Mengakselerasi <span class="text-gradient-accent">Pertumbuhan Bisnis Anda?</span>
+      </h2>
+      <p class="text-slate-400 mt-4 text-base sm:text-lg leading-relaxed">
+        Apakah Anda sedang mencari Growth Lead strategis, Tech Consultant, atau partner pengembangan web modern? Saya siap berdiskusi dan memberikan solusi nyata.
+      </p>
+    </div>
+
+    <!-- Main Contact Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+      
+      <!-- Left: Direct Channels & Fast Info (5 Cols) -->
+      <div class="lg:col-span-5 flex flex-col justify-between space-y-4">
+        
+        <!-- WhatsApp Direct Card -->
+        <a 
+          href={resumeData.personal.whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="glass-card p-6 rounded-2xl border border-emerald-500/30 hover:border-emerald-400/80 bg-gradient-to-br from-emerald-950/30 via-slate-900/60 to-slate-900 block group transition-all"
+        >
+          <div class="flex items-center justify-between mb-3">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+              <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+              </svg>
+            </div>
+            <span class="text-xs font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/30 flex items-center gap-1">
+              <span>Chat Langsung</span> →
+            </span>
+          </div>
+          <h3 class="text-lg font-bold text-white group-hover:text-emerald-300 transition-colors">
+            WhatsApp Messenger
+          </h3>
+          <p class="text-sm font-semibold text-slate-300 mt-1">
+            {resumeData.personal.phone}
+          </p>
+          <p class="text-xs text-slate-400 mt-2">
+            Metode tercepat untuk konsultasi singkat atau penjadwalan meeting.
+          </p>
+        </a>
+
+        <!-- Email Direct Card -->
+        <a 
+          href={`mailto:${resumeData.personal.email}?subject=Diskusi%20Peluang%20Kerjasama%20-%20Susilo%20Widakdo`}
+          class="glass-card p-6 rounded-2xl border border-indigo-500/30 hover:border-indigo-400/80 bg-gradient-to-br from-indigo-950/30 via-slate-900/60 to-slate-900 block group transition-all"
+        >
+          <div class="flex items-center justify-between mb-3">
+            <div class="w-12 h-12 rounded-xl bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <span class="text-xs font-bold text-indigo-400 bg-indigo-500/10 px-2.5 py-1 rounded-full border border-indigo-500/30 flex items-center gap-1">
+              <span>Kirim Email</span> →
+            </span>
+          </div>
+          <h3 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">
+            Official E-Mail
+          </h3>
+          <p class="text-sm font-semibold text-slate-300 mt-1">
+            {resumeData.personal.email}
+          </p>
+          <p class="text-xs text-slate-400 mt-2">
+            Ideal untuk pengiriman proposal resmi, job specification, atau NDA.
+          </p>
+        </a>
+
+        <!-- Location & Availability Badge -->
+        <div class="p-5 rounded-2xl glass-panel border border-white/5 space-y-2 text-xs">
+          <div class="flex items-center gap-2 text-slate-300">
+            <span class="text-base">📍</span>
+            <span><strong>Lokasi:</strong> Jakarta Utara, DKI Jakarta, Indonesia</span>
+          </div>
+          <div class="flex items-center gap-2 text-slate-300">
+            <span class="text-base">💼</span>
+            <span><strong>Tersedia:</strong> Full-Time Leadership / Strategic Advisory / Hybrid</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right: Interactive Quick Message Builder (7 Cols) -->
+      <div class="lg:col-span-7 glass-panel p-6 sm:p-8 rounded-3xl border border-white/10 flex flex-col justify-between">
+        
+        <div>
+          <h3 class="text-xl font-bold text-white mb-1">
+            Kirim Pesan Cepat
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-400 mb-6">
+            Pilih kebutuhan Anda dan kirim langsung melalui WhatsApp atau Email dalam 1 klik.
+          </p>
+
+          <form id="quick-contact-form" class="space-y-4">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 mb-1.5">Nama Anda / Perusahaan</label>
+                <input 
+                  type="text" 
+                  id="form-name" 
+                  required
+                  placeholder="Contoh: Budi / PT Maju Digital" 
+                  class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border border-slate-700/80 focus:border-indigo-500 focus:outline-none text-white text-sm placeholder:text-slate-500"
+                />
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 mb-1.5">Topik Kerjasama</label>
+                <select 
+                  id="form-topic"
+                  class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border border-slate-700/80 focus:border-indigo-500 focus:outline-none text-white text-sm"
+                >
+                  <option value="Tawaran Posisi Full-Time (Growth / Tech Lead)">Tawaran Posisi Full-Time (Growth / Tech Lead)</option>
+                  <option value="Konsultasi Digital Marketing & Ads">Konsultasi Digital Marketing & Ads</option>
+                  <option value="Pengembangan Website / Web App Modern">Pengembangan Website / Web App Modern</option>
+                  <option value="Audit SEO & Konversi (CRO)">Audit SEO & Konversi (CRO)</option>
+                  <option value="Diskusi & Networking Santai">Diskusi & Networking Santai</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1.5">Detail Pesan Singkat</label>
+              <textarea 
+                id="form-message" 
+                rows="4" 
+                placeholder="Ceritakan ringkasan tujuan, timeline, atau detail proyek yang ingin Anda bicarakan..." 
+                class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border border-slate-700/80 focus:border-indigo-500 focus:outline-none text-white text-sm placeholder:text-slate-500 resize-none"
+              ></textarea>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="pt-2 flex flex-col sm:flex-row items-center gap-3">
+              <!-- Send via WhatsApp button -->
+              <button 
+                type="button" 
+                id="send-wa-btn"
+                class="w-full sm:flex-1 py-3.5 px-5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold text-sm shadow-lg shadow-emerald-500/20 flex items-center justify-center gap-2 hover:-translate-y-0.5 active:translate-y-0 transition-all"
+              >
+                <span>Kirim via WhatsApp</span>
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                </svg>
+              </button>
+
+              <!-- Send via Email button -->
+              <button 
+                type="button" 
+                id="send-email-btn"
+                class="w-full sm:w-auto py-3.5 px-5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold text-sm flex items-center justify-center gap-2 transition-all"
+              >
+                <span>Kirim via Email</span>
+                <svg class="w-4 h-4 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </button>
+            </div>
+
+          </form>
+        </div>
+
+        <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between text-xs text-slate-500">
+          <span>🔒 Bebas spam. Privasi data Anda terjaga.</span>
+          <span class="text-emerald-400 font-medium">⚡ Respon < 2 Jam</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const nameInput = document.getElementById('form-name') as HTMLInputElement;
+  const topicInput = document.getElementById('form-topic') as HTMLSelectElement;
+  const messageInput = document.getElementById('form-message') as HTMLTextAreaElement;
+  const sendWaBtn = document.getElementById('send-wa-btn');
+  const sendEmailBtn = document.getElementById('send-email-btn');
+
+  const formatMessage = () => {
+    const name = nameInput?.value.trim() || 'Rekan Bisnis';
+    const topic = topicInput?.value || 'Diskusi Kerjasama';
+    const msg = messageInput?.value.trim() || 'Saya ingin berdiskusi mengenai proyek/peluang dengan Pak Susilo.';
+
+    return `Halo Pak Susilo, saya ${name}.\n\nTopik: ${topic}\n\nPesan: ${msg}`;
+  };
+
+  sendWaBtn?.addEventListener('click', () => {
+    const text = encodeURIComponent(formatMessage());
+    window.open(`https://wa.me/6287785511995?text=${text}`, '_blank');
+  });
+
+  sendEmailBtn?.addEventListener('click', () => {
+    const name = nameInput?.value.trim() || 'Rekan Bisnis';
+    const topic = topicInput?.value || 'Diskusi Kerjasama';
+    const body = encodeURIComponent(formatMessage());
+    const subject = encodeURIComponent(`[Inquiry] ${topic} - dari ${name}`);
+    window.location.href = `mailto:susiloblogger@gmail.com?subject=${subject}&body=${body}`;
+  });
+</script>

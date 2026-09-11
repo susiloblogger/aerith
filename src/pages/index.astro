@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Skills from '../components/Skills.astro';
+import Experience from '../components/Experience.astro';
+import Certifications from '../components/Certifications.astro';
+import Education from '../components/Education.astro';
+import Contact from '../components/Contact.astro';
+import { resumeData } from '../data/resume';
+
+const pageTitle = `${resumeData.personal.fullName} — ${resumeData.personal.roleTitle}`;
+const pageDesc = `${resumeData.personal.fullName} adalah ${resumeData.personal.roleTitle} dengan 10+ tahun pengalaman memimpin pertumbuhan digital, SEO, Google Ads, BigQuery data pipelines, serta arsitektur web modern.`;
+---
+
+<Layout title={pageTitle} description={pageDesc}>
+  <!-- Hero Section -->
+  <Hero />
+
+  <!-- About / Executive Summary Section -->
+  <About />
+
+  <!-- Strategic Skills & Tools Section -->
+  <Skills />
+
+  <!-- Career Experience & Track Record Section -->
+  <Experience />
+
+  <!-- Verified Certifications Section -->
+  <Certifications />
+
+  <!-- Education & Leadership Section -->
+  <Education />
+
+  <!-- High-Converting Contact & Inbound Section -->
+  <Contact />
+</Layout>

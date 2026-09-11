@@ -1,0 +1,59 @@
+---
+import { resumeData } from '../data/resume';
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="border-t border-slate-800/80 bg-[#05070B] py-12 relative z-10 no-print">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+      
+      <!-- Brand & Title -->
+      <div class="flex flex-col items-center md:items-start text-center md:text-left">
+        <div class="font-extrabold text-white text-lg tracking-tight">
+          {resumeData.personal.fullName}
+        </div>
+        <p class="text-xs text-slate-400 mt-0.5">
+          {resumeData.personal.roleTitle} • Jakarta Utara, Indonesia
+        </p>
+      </div>
+
+      <!-- Quick Section Links -->
+      <div class="flex flex-wrap items-center justify-center gap-4 text-xs font-medium text-slate-400">
+        <a href="#about" class="hover:text-white transition-colors">About</a>
+        <a href="#skills" class="hover:text-white transition-colors">Proficiencies</a>
+        <a href="#experience" class="hover:text-white transition-colors">Experience</a>
+        <a href="#certifications" class="hover:text-white transition-colors">Certifications</a>
+        <a href="#education" class="hover:text-white transition-colors">Education</a>
+        <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+      </div>
+
+      <!-- Back to Top button -->
+      <div class="flex items-center gap-3">
+        <button 
+          onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+          class="p-2.5 rounded-xl glass-card border border-white/5 text-slate-400 hover:text-white transition-colors text-xs flex items-center gap-1.5"
+          title="Kembali ke atas"
+        >
+          <span>Ke Atas</span>
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Sub-footer copyright -->
+    <div class="mt-8 pt-6 border-t border-slate-800/60 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-400 gap-3 text-center sm:text-left">
+      <div>
+        © {currentYear} {resumeData.personal.fullName}. Hak Cipta Dilindungi Undang-Undang.
+      </div>
+      <div class="flex items-center gap-4">
+        <span>Built with Astro, Tailwind CSS & Motion</span>
+        <span class="text-slate-600">•</span>
+        <span class="text-emerald-400">High-Performance SSG</span>
+      </div>
+    </div>
+  </div>
+</footer>

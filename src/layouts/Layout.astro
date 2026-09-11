@@ -1,0 +1,129 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import FloatingCTA from '../components/FloatingCTA.astro';
+import { resumeData } from '../data/resume';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = `${resumeData.personal.fullName} | ${resumeData.personal.roleTitle}`,
+  description = resumeData.personal.tagline
+} = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site || 'https://susilo-widakdo.vercel.app').href;
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": resumeData.personal.fullName,
+  "jobTitle": resumeData.personal.roleTitle,
+  "email": `mailto:${resumeData.personal.email}`,
+  "telephone": resumeData.personal.phone,
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Jakarta Utara",
+    "addressCountry": "Indonesia"
+  },
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Universitas Bhayangkara Jakarta Raya"
+  },
+  "description": resumeData.personal.tagline,
+  "knowsAbout": [
+    "Digital Marketing",
+    "Search Engine Optimization",
+    "Conversion Rate Optimization",
+    "Google Analytics",
+    "Web Development",
+    "BigQuery Data Analysis",
+    "Google Ads"
+  ]
+};
+---
+
+<!doctype html>
+<html lang="id" class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="author" content={resumeData.personal.fullName} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/avatar.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalUrl} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="/avatar.jpg" />
+
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+  </head>
+  <body class="bg-[#07090E] text-slate-200 antialiased selection:bg-indigo-500/30 selection:text-indigo-200">
+    <!-- Ambient Background Gradients -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+      <div class="absolute -top-40 -left-40 w-[600px] h-[600px] bg-indigo-600/10 rounded-full blur-[140px]"></div>
+      <div class="absolute top-[40%] -right-40 w-[500px] h-[500px] bg-cyan-600/10 rounded-full blur-[140px]"></div>
+      <div class="absolute -bottom-40 left-[30%] w-[600px] h-[600px] bg-violet-600/10 rounded-full blur-[140px]"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:32px_32px] opacity-25"></div>
+    </div>
+
+    <div class="relative z-10 flex flex-col min-h-screen">
+      <Navbar />
+      <main class="flex-grow">
+        <slot />
+      </main>
+      <Footer />
+      <FloatingCTA />
+    </div>
+
+    <!-- Client-side Motion and Interactive Scripts -->
+    <script>
+      import { animate, inView } from "motion";
+
+      // Reveal on scroll animation
+      const initScrollAnimations = () => {
+        const revealElements = document.querySelectorAll(".reveal-on-scroll");
+        revealElements.forEach((el) => {
+          inView(el, () => {
+            animate(
+              el,
+              { opacity: [0, 1], y: [24, 0] },
+              { duration: 0.6, easing: [0.16, 1, 0.3, 1] }
+            );
+          });
+        });
+      };
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initScrollAnimations);
+      } else {
+        initScrollAnimations();
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,111 @@
+---
+import { resumeData } from '../data/resume';
+
+const certCategories = [
+  { id: 'all', label: 'Semua (18)' },
+  { id: 'analytics', label: 'Google Analytics & BigQuery (10)' },
+  { id: 'ads', label: 'Google Ads & Search (4)' },
+  { id: 'cloud', label: 'Cloud & Data Engineering (3)' },
+  { id: 'development', label: 'Web Development (1)' },
+];
+---
+
+<section id="certifications" class="py-20 relative border-t border-slate-800/80">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-2xl mx-auto mb-14 reveal-on-scroll">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase tracking-widest mb-3 border border-emerald-500/20">
+        Verified Credentials
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+        Sertifikasi & <span class="text-gradient-accent">Penghargaan Resmi</span>
+      </h2>
+      <p class="text-slate-400 mt-3 text-base sm:text-lg">
+        Validasi kompetensi standar global dari Google Inc., Qwiklabs, dan institusi teknologi terkemuka.
+      </p>
+    </div>
+
+    <!-- Category Switcher -->
+    <div class="flex flex-wrap items-center justify-center gap-2 mb-10" id="cert-filter-container">
+      {certCategories.map((c, i) => (
+        <button 
+          data-category={c.id}
+          class={`cert-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all ${
+            i === 0 
+              ? 'bg-emerald-500 text-white shadow-md' 
+              : 'bg-slate-800/90 text-slate-300 hover:text-white border border-slate-700/60'
+          }`}
+        >
+          {c.label}
+        </button>
+      ))}
+    </div>
+
+    <!-- Certifications Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="cert-grid">
+      {resumeData.certifications.map((cert) => (
+        <div 
+          data-category={cert.category}
+          class="cert-item glass-card p-5 rounded-2xl border border-white/5 flex flex-col justify-between group reveal-on-scroll"
+        >
+          <div class="flex items-start gap-3.5 mb-3">
+            <div class="w-10 h-10 rounded-xl bg-slate-800/90 border border-slate-700 flex items-center justify-center shrink-0 text-lg group-hover:scale-110 group-hover:border-emerald-500/50 transition-all">
+              {cert.issuer.includes('Google') ? '🇬' :
+               cert.issuer.includes('Qwiklabs') ? '⚡' :
+               cert.issuer.includes('Dicoding') ? '🇮🇩' : '💻'}
+            </div>
+            <div>
+              <h3 class="font-bold text-white text-sm sm:text-base group-hover:text-emerald-300 transition-colors leading-snug">
+                {cert.name}
+              </h3>
+              <p class="text-xs text-slate-400 mt-1 flex items-center gap-1.5">
+                <span>{cert.issuer}</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-800/60 flex items-center justify-between text-[11px]">
+            <span class="px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 border border-slate-700/50 capitalize">
+              {cert.category}
+            </span>
+            <span class="text-emerald-400 font-semibold flex items-center gap-1">
+              <span>Verified</span>
+              <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const certButtons = document.querySelectorAll('.cert-filter-btn');
+  const certItems = document.querySelectorAll('.cert-item');
+
+  certButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      certButtons.forEach(b => {
+        b.classList.remove('bg-emerald-500', 'text-white');
+        b.classList.add('bg-slate-800/90', 'text-slate-300');
+      });
+      btn.classList.add('bg-emerald-500', 'text-white');
+      btn.classList.remove('bg-slate-800/90', 'text-slate-300');
+
+      const target = btn.getAttribute('data-category');
+
+      certItems.forEach(item => {
+        const itemCat = item.getAttribute('data-category');
+        if (target === 'all' || itemCat === target) {
+          (item as HTMLElement).style.display = 'flex';
+        } else {
+          (item as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
