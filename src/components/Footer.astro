@@ -1,6 +1,14 @@
 ---
 import { resumeData } from '../data/resume';
+import { translations, type Locale } from '../data/i18n';
 
+interface Props {
+  currentLang?: Locale;
+}
+
+const { currentLang = 'id' } = Astro.props;
+const tNav = translations[currentLang].nav;
+const t = translations[currentLang].footer;
 const currentYear = new Date().getFullYear();
 ---
 
@@ -20,12 +28,12 @@ const currentYear = new Date().getFullYear();
 
       <!-- Quick Section Links -->
       <div class="flex flex-wrap items-center justify-center gap-4 text-xs font-medium text-slate-600 dark:text-slate-400">
-        <a href="#about" class="hover:text-slate-900 dark:hover:text-white transition-colors">About</a>
-        <a href="#skills" class="hover:text-slate-900 dark:hover:text-white transition-colors">Proficiencies</a>
-        <a href="#experience" class="hover:text-slate-900 dark:hover:text-white transition-colors">Experience</a>
-        <a href="#certifications" class="hover:text-slate-900 dark:hover:text-white transition-colors">Certifications</a>
-        <a href="#education" class="hover:text-slate-900 dark:hover:text-white transition-colors">Education</a>
-        <a href="#contact" class="hover:text-slate-900 dark:hover:text-white transition-colors">Contact</a>
+        <a href="#about" class="hover:text-slate-900 dark:hover:text-white transition-colors">{tNav.about}</a>
+        <a href="#skills" class="hover:text-slate-900 dark:hover:text-white transition-colors">{tNav.proficiencies}</a>
+        <a href="#experience" class="hover:text-slate-900 dark:hover:text-white transition-colors">{tNav.experience}</a>
+        <a href="#certifications" class="hover:text-slate-900 dark:hover:text-white transition-colors">{tNav.certifications}</a>
+        <a href="#education" class="hover:text-slate-900 dark:hover:text-white transition-colors">{tNav.education}</a>
+        <a href="#contact" class="hover:text-slate-900 dark:hover:text-white transition-colors">{tNav.contact}</a>
       </div>
 
       <!-- Back to Top button -->
@@ -33,9 +41,9 @@ const currentYear = new Date().getFullYear();
         <button 
           onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
           class="p-2.5 rounded-xl glass-card border border-slate-200 dark:border-white/5 text-slate-700 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors text-xs flex items-center gap-1.5 shadow-sm"
-          title="Kembali ke atas"
+          title={t.backToTop}
         >
-          <span>Ke Atas</span>
+          <span>{t.backToTop}</span>
           <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
           </svg>
@@ -47,10 +55,10 @@ const currentYear = new Date().getFullYear();
     <!-- Sub-footer copyright -->
     <div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800/60 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500 dark:text-slate-400 gap-3 text-center sm:text-left">
       <div>
-        © {currentYear} {resumeData.personal.fullName}. Hak Cipta Dilindungi Undang-Undang.
+        © {currentYear} {resumeData.personal.fullName}. {t.rights}
       </div>
       <div class="flex items-center gap-4">
-        <span>Built with Astro, Tailwind CSS & Motion</span>
+        <span>{t.builtWith}</span>
         <span class="text-slate-300 dark:text-slate-600">•</span>
         <span class="text-emerald-600 dark:text-emerald-400 font-semibold">High-Performance SSG</span>
       </div>

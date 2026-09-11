@@ -1,6 +1,16 @@
 ---
 import { resumeData } from '../data/resume';
+import { translations, type Locale } from '../data/i18n';
 import ThemeToggle from './ThemeToggle.astro';
+import LanguageToggle from './LanguageToggle.astro';
+
+interface Props {
+  currentLang?: Locale;
+}
+
+const { currentLang = 'id' } = Astro.props;
+const t = translations[currentLang].nav;
+const homePrefix = currentLang === 'en' ? '/en' : '';
 ---
 
 <header class="sticky top-0 z-50 w-full glass-nav backdrop-blur-xl transition-all duration-300">
@@ -8,7 +18,7 @@ import ThemeToggle from './ThemeToggle.astro';
     <div class="flex items-center justify-between h-16 sm:h-20">
       
       <!-- Brand Logo / Name -->
-      <a href="#" class="flex items-center gap-3 group">
+      <a href={homePrefix || '#'} class="flex items-center gap-3 group">
         <div class="relative w-10 h-10 rounded-xl overflow-hidden border border-indigo-500/30 group-hover:border-indigo-500 transition-colors">
           <img 
             src={resumeData.personal.avatarUrl} 
@@ -22,36 +32,39 @@ import ThemeToggle from './ThemeToggle.astro';
           </span>
           <div class="flex items-center gap-1.5">
             <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-ping"></span>
-            <span class="text-xs text-slate-500 dark:text-slate-400 font-medium hidden sm:inline-block">Open for Opportunities</span>
+            <span class="text-xs text-slate-500 dark:text-slate-400 font-medium hidden sm:inline-block">{t.status}</span>
           </div>
         </div>
       </a>
 
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex items-center gap-1 lg:gap-2 text-sm font-medium text-slate-600 dark:text-slate-300">
-        <a href="#about" class="px-3 py-2 rounded-lg hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-all">About</a>
-        <a href="#skills" class="px-3 py-2 rounded-lg hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-all">Proficiencies</a>
-        <a href="#experience" class="px-3 py-2 rounded-lg hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-all">Experience</a>
-        <a href="#certifications" class="px-3 py-2 rounded-lg hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-all">Certifications</a>
-        <a href="#education" class="px-3 py-2 rounded-lg hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-all">Education</a>
+        <a href="#about" class="px-3 py-2 rounded-lg hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-all">{t.about}</a>
+        <a href="#skills" class="px-3 py-2 rounded-lg hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-all">{t.proficiencies}</a>
+        <a href="#experience" class="px-3 py-2 rounded-lg hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-all">{t.experience}</a>
+        <a href="#certifications" class="px-3 py-2 rounded-lg hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-all">{t.certifications}</a>
+        <a href="#education" class="px-3 py-2 rounded-lg hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-all">{t.education}</a>
       </nav>
 
-      <!-- CTA Buttons & Theme Switcher -->
-      <div class="flex items-center gap-2.5 sm:gap-3">
+      <!-- CTA Buttons, Language Switcher & Theme Switcher -->
+      <div class="flex items-center gap-2 sm:gap-2.5">
         
+        <!-- Language Switcher -->
+        <LanguageToggle currentLang={currentLang} />
+
         <!-- Theme Toggle Switcher -->
         <ThemeToggle />
 
         <!-- Print / PDF Resume button -->
         <button 
           onclick="window.print()" 
-          title="Print / Save CV as PDF"
-          class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold rounded-xl bg-slate-100 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-700/60 transition-all shadow-sm"
+          title={t.printBtn}
+          class="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold rounded-xl bg-slate-100 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-700/60 transition-all shadow-sm"
         >
           <svg class="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
           </svg>
-          <span>PDF / Print</span>
+          <span>{t.printBtn}</span>
         </button>
 
         <!-- Direct Contact WhatsApp -->
@@ -59,9 +72,9 @@ import ThemeToggle from './ThemeToggle.astro';
           href={resumeData.personal.whatsappUrl} 
           target="_blank" 
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-semibold rounded-xl bg-gradient-to-r from-indigo-500 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 text-white shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all"
+          class="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 text-xs sm:text-sm font-semibold rounded-xl bg-gradient-to-r from-indigo-500 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 text-white shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all"
         >
-          <span>Hubungi Saya</span>
+          <span>{t.contactBtn}</span>
           <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </svg>
@@ -88,15 +101,21 @@ import ThemeToggle from './ThemeToggle.astro';
   <!-- Mobile Drawer -->
   <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-6 border-b border-slate-200 dark:border-slate-800/80 bg-white/95 dark:bg-[#0A0D14]/95 backdrop-blur-xl">
     <div class="flex flex-col gap-2 text-sm font-medium">
-      <a href="#about" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 text-slate-700 dark:text-slate-200">About</a>
-      <a href="#skills" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 text-slate-700 dark:text-slate-200">Proficiencies</a>
-      <a href="#experience" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 text-slate-700 dark:text-slate-200">Experience</a>
-      <a href="#certifications" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 text-slate-700 dark:text-slate-200">Certifications</a>
-      <a href="#education" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 text-slate-700 dark:text-slate-200">Education</a>
-      <a href="#contact" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 text-slate-700 dark:text-slate-200">Contact Form</a>
-      <div class="pt-2 border-t border-slate-200 dark:border-slate-800 mt-1 flex gap-2">
+      <a href="#about" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 text-slate-700 dark:text-slate-200">{t.about}</a>
+      <a href="#skills" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 text-slate-700 dark:text-slate-200">{t.proficiencies}</a>
+      <a href="#experience" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 text-slate-700 dark:text-slate-200">{t.experience}</a>
+      <a href="#certifications" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 text-slate-700 dark:text-slate-200">{t.certifications}</a>
+      <a href="#education" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 text-slate-700 dark:text-slate-200">{t.education}</a>
+      <a href="#contact" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 text-slate-700 dark:text-slate-200">{t.contact}</a>
+      
+      <div class="pt-3 border-t border-slate-200 dark:border-slate-800 mt-1 flex items-center justify-between gap-2">
+        <span class="text-xs text-slate-500">{t.langSwitchLabel}:</span>
+        <LanguageToggle currentLang={currentLang} />
+      </div>
+
+      <div class="pt-2">
         <button onclick="window.print()" class="w-full py-2 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-center">
-          Print / Save PDF
+          {t.printBtn}
         </button>
       </div>
     </div>

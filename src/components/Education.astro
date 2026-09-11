@@ -1,5 +1,13 @@
 ---
 import { resumeData } from '../data/resume';
+import { translations, type Locale } from '../data/i18n';
+
+interface Props {
+  currentLang?: Locale;
+}
+
+const { currentLang = 'id' } = Astro.props;
+const t = translations[currentLang].education;
 ---
 
 <section id="education" class="py-20 relative border-t border-slate-200 dark:border-slate-800/80">
@@ -8,13 +16,13 @@ import { resumeData } from '../data/resume';
     <!-- Section Header -->
     <div class="text-center max-w-2xl mx-auto mb-16 reveal-on-scroll">
       <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 text-xs font-bold uppercase tracking-widest mb-3 border border-amber-500/20">
-        Academic & Leadership
+        {t.badge}
       </div>
       <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-        Pendidikan Formal & <span class="text-gradient-accent">Kepemimpinan Organisasi</span>
+        {t.title}<span class="text-gradient-accent">{t.titleAccent}</span>
       </h2>
       <p class="text-slate-600 dark:text-slate-400 mt-3 text-base sm:text-lg">
-        Landasan akademis teknik informatika yang kuat dan rekam jejak kepemimpinan mahasiswa & sosial.
+        {t.subtitle}
       </p>
     </div>
 
@@ -24,7 +32,7 @@ import { resumeData } from '../data/resume';
       <div class="lg:col-span-7 space-y-6">
         <h3 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-4">
           <span class="p-2 rounded-xl bg-amber-500/10 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400 text-sm">🎓</span>
-          <span>Pendidikan Formal</span>
+          <span>{t.formalTitle}</span>
         </h3>
 
         <!-- Degree Card: Universitas Bhayangkara -->
@@ -32,13 +40,13 @@ import { resumeData } from '../data/resume';
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
             <div>
               <span class="px-2.5 py-0.5 rounded text-[11px] font-bold bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20">
-                Sarjana Teknik (S.T.)
+                {t.degreeName}
               </span>
               <h4 class="text-xl font-bold text-slate-900 dark:text-white mt-1">
                 Universitas Bhayangkara Jakarta Raya
               </h4>
               <p class="text-sm font-semibold text-slate-700 dark:text-slate-300">
-                Teknik Informatika / Information Technology
+                {t.majorName}
               </p>
             </div>
             <div class="text-xs font-bold text-slate-600 dark:text-slate-400 px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/60 self-start sm:self-auto">
@@ -48,14 +56,14 @@ import { resumeData } from '../data/resume';
 
           <div class="mt-4 pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
             <div class="text-xs text-slate-600 dark:text-slate-400">
-              Indeks Prestasi Kumulatif (IPK):
+              {t.gpaLabel}
             </div>
             <div class="px-3 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 font-extrabold text-sm">
               3.17 / 4.00
             </div>
           </div>
           <p class="text-xs text-slate-600 dark:text-slate-400 mt-3 leading-relaxed">
-            Fokus kurikulum pada arsitektur sistem informasi, algoritma pemrograman, perancangan database relasional, serta manajemen jaringan komputer.
+            {t.curriculumDesc}
           </p>
         </div>
 
@@ -67,7 +75,7 @@ import { resumeData } from '../data/resume';
                 SMK Bina Teknologi Purwokerto
               </h4>
               <p class="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
-                Teknik Mesin (Mechanical Engineering)
+                {t.vocationalMajor}
               </p>
             </div>
             <div class="text-xs font-bold text-slate-600 dark:text-slate-400 px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/60 self-start sm:self-auto">
@@ -79,16 +87,16 @@ import { resumeData } from '../data/resume';
         <!-- Non-formal: English Proficiency -->
         <div class="glass-panel p-5 rounded-2xl border border-slate-200 dark:border-white/5">
           <h4 class="text-sm font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
-            <span>🌐</span> Kemahiran Bahasa & Pelatihan Bahasa Inggris
+            <span>🌐</span> {t.englishTitle}
           </h4>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-700 dark:text-slate-300">
             <div class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/40">
               <div class="font-semibold text-slate-900 dark:text-white">Yayasan LIA (2022)</div>
-              <div class="text-slate-500 dark:text-slate-400 mt-0.5">Professional English Communication Course</div>
+              <div class="text-slate-500 dark:text-slate-400 mt-0.5">{t.liaDesc}</div>
             </div>
             <div class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/40">
               <div class="font-semibold text-slate-900 dark:text-white">Intensive English Course (2003)</div>
-              <div class="text-slate-500 dark:text-slate-400 mt-0.5">Advanced English Proficiency</div>
+              <div class="text-slate-500 dark:text-slate-400 mt-0.5">{t.iecDesc}</div>
             </div>
           </div>
         </div>
@@ -99,7 +107,7 @@ import { resumeData } from '../data/resume';
       <div class="lg:col-span-5 space-y-6">
         <h3 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-4">
           <span class="p-2 rounded-xl bg-purple-500/10 dark:bg-purple-500/20 text-purple-600 dark:text-purple-400 text-sm">👥</span>
-          <span>Organisasi & Kepemimpinan</span>
+          <span>{t.orgTitle}</span>
         </h3>
 
         <div class="space-y-4">
@@ -123,10 +131,10 @@ import { resumeData } from '../data/resume';
         <!-- Social Responsibility Card -->
         <div class="p-5 rounded-2xl bg-gradient-to-br from-indigo-50/80 via-slate-100 to-white dark:from-indigo-900/30 dark:via-slate-900/40 dark:to-slate-900 border border-indigo-500/20 shadow-sm">
           <div class="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider mb-1">
-            Nilai Integritas & Kontribusi Sosial
+            {t.socialTitle}
           </div>
           <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-            Aktif mengaplikasikan keahlian data dan sistem komputerisasi untuk kegiatan sosial dan literasi anak bangsa (Sejuta Buku Untuk Anak Indonesia) serta pembinaan kemahasiswaan.
+            {t.socialDesc}
           </p>
         </div>
 

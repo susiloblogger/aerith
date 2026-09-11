@@ -1,5 +1,13 @@
 ---
 import { resumeData } from '../data/resume';
+import { translations, type Locale } from '../data/i18n';
+
+interface Props {
+  currentLang?: Locale;
+}
+
+const { currentLang = 'id' } = Astro.props;
+const t = translations[currentLang].experience;
 ---
 
 <section id="experience" class="py-20 relative border-t border-slate-200 dark:border-slate-800/80">
@@ -8,13 +16,13 @@ import { resumeData } from '../data/resume';
     <!-- Section Header -->
     <div class="text-center max-w-2xl mx-auto mb-16 reveal-on-scroll">
       <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-violet-500/10 text-violet-600 dark:text-violet-400 text-xs font-bold uppercase tracking-widest mb-3 border border-violet-500/20">
-        Career Journey
+        {t.badge}
       </div>
       <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-        Pengalaman Profesional & <span class="text-gradient-accent">Track Record</span>
+        {t.title}<span class="text-gradient-accent">{t.titleAccent}</span>
       </h2>
       <p class="text-slate-600 dark:text-slate-400 mt-3 text-base sm:text-lg">
-        Riwayat karir berkesinambungan selama lebih dari 10 tahun membidani pertumbuhan digital dan kepemimpinan teknologi.
+        {t.subtitle}
       </p>
     </div>
 
@@ -24,31 +32,31 @@ import { resumeData } from '../data/resume';
         data-filter="all" 
         class="exp-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-indigo-600 dark:bg-indigo-500 text-white shadow-md transition-all"
       >
-        Semua Karir ({resumeData.experiences.length})
+        {t.filters.all} ({resumeData.experiences.length})
       </button>
       <button 
         data-filter="growth" 
         class="exp-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-700/60 transition-all"
       >
-        Digital Growth & Marketing
+        {t.filters.growth}
       </button>
       <button 
         data-filter="tech" 
         class="exp-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-700/60 transition-all"
       >
-        Technology Officer & Systems
+        {t.filters.tech}
       </button>
       <button 
         data-filter="consulting" 
         class="exp-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-700/60 transition-all"
       >
-        Consulting & NGO
+        {t.filters.consulting}
       </button>
       <button 
         data-filter="academic" 
         class="exp-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-700/60 transition-all"
       >
-        Akademik & Dosen
+        {t.filters.academic}
       </button>
     </div>
 

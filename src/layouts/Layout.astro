@@ -4,18 +4,23 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import FloatingCTA from '../components/FloatingCTA.astro';
 import { resumeData } from '../data/resume';
+import { translations, type Locale } from '../data/i18n';
 
 interface Props {
+  lang?: Locale;
   title?: string;
   description?: string;
 }
 
 const {
-  title = `${resumeData.personal.fullName} | ${resumeData.personal.roleTitle}`,
-  description = resumeData.personal.tagline
+  lang = 'id',
+  title = translations[lang].meta.title,
+  description = translations[lang].meta.description
 } = Astro.props;
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site || 'https://susilo-widakdo.vercel.app').href;
+const altIdUrl = new URL('/', Astro.site || 'https://susilo-widakdo.vercel.app').href;
+const altEnUrl = new URL('/en/', Astro.site || 'https://susilo-widakdo.vercel.app').href;
 
 const schemaData = {
   "@context": "https://schema.org",
@@ -47,7 +52,7 @@ const schemaData = {
 ---
 
 <!doctype html>
-<html lang="id" class="scroll-smooth">
+<html lang={lang} class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -73,6 +78,11 @@ const schemaData = {
     <meta name="description" content={description} />
     <meta name="author" content={resumeData.personal.fullName} />
     <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Hreflang Tags for Multilingual SEO -->
+    <link rel="alternate" hreflang="id" href={altIdUrl} />
+    <link rel="alternate" hreflang="en" href={altEnUrl} />
+    <link rel="alternate" hreflang="x-default" href={altIdUrl} />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -106,12 +116,12 @@ const schemaData = {
     </div>
 
     <div class="relative z-10 flex flex-col min-h-screen">
-      <Navbar />
+      <Navbar currentLang={lang} />
       <main class="flex-grow">
         <slot />
       </main>
-      <Footer />
-      <FloatingCTA />
+      <Footer currentLang={lang} />
+      <FloatingCTA currentLang={lang} />
     </div>
 
     <!-- Client-side Motion and Interactive Scripts -->

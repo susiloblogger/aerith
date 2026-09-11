@@ -1,12 +1,20 @@
 ---
 import { resumeData } from '../data/resume';
+import { translations, type Locale } from '../data/i18n';
+
+interface Props {
+  currentLang?: Locale;
+}
+
+const { currentLang = 'id' } = Astro.props;
+const t = translations[currentLang].certifications;
 
 const certCategories = [
-  { id: 'all', label: 'Semua (18)' },
-  { id: 'analytics', label: 'Google Analytics & BigQuery (10)' },
-  { id: 'ads', label: 'Google Ads & Search (4)' },
-  { id: 'cloud', label: 'Cloud & Data Engineering (3)' },
-  { id: 'development', label: 'Web Development (1)' },
+  { id: 'all', label: t.filters.all },
+  { id: 'analytics', label: t.filters.analytics },
+  { id: 'ads', label: t.filters.ads },
+  { id: 'cloud', label: t.filters.cloud },
+  { id: 'development', label: t.filters.development },
 ];
 ---
 
@@ -16,13 +24,13 @@ const certCategories = [
     <!-- Section Header -->
     <div class="text-center max-w-2xl mx-auto mb-14 reveal-on-scroll">
       <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-bold uppercase tracking-widest mb-3 border border-emerald-500/20">
-        Verified Credentials
+        {t.badge}
       </div>
       <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-        Sertifikasi & <span class="text-gradient-accent">Penghargaan Resmi</span>
+        {t.title}<span class="text-gradient-accent">{t.titleAccent}</span>
       </h2>
       <p class="text-slate-600 dark:text-slate-400 mt-3 text-base sm:text-lg">
-        Validasi kompetensi standar global dari Google Inc., Qwiklabs, dan institusi teknologi terkemuka.
+        {t.subtitle}
       </p>
     </div>
 
@@ -70,7 +78,7 @@ const certCategories = [
               {cert.category}
             </span>
             <span class="text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1">
-              <span>Verified</span>
+              <span>{t.verifiedBadge}</span>
               <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
               </svg>

@@ -1,0 +1,66 @@
+---
+// LanguageToggle.astro: Seamless ID / EN switcher with flag icons and URL preservation
+import type { Locale } from '../data/i18n';
+
+interface Props {
+  currentLang?: Locale;
+}
+
+const { currentLang = 'id' } = Astro.props;
+---
+
+<div class="inline-flex items-center p-1 rounded-xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/60 shadow-sm" id="lang-toggle-container">
+  <!-- Indonesian Option -->
+  <a
+    href="/"
+    id="lang-btn-id"
+    title="Bahasa Indonesia"
+    class={`lang-switch-link flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${
+      currentLang === 'id'
+        ? 'bg-white dark:bg-indigo-600 text-slate-900 dark:text-white shadow-xs'
+        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+    }`}
+  >
+    <span class="text-xs">🇮🇩</span>
+    <span>ID</span>
+  </a>
+
+  <!-- English Option -->
+  <a
+    href="/en/"
+    id="lang-btn-en"
+    title="English"
+    class={`lang-switch-link flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${
+      currentLang === 'en'
+        ? 'bg-white dark:bg-indigo-600 text-slate-900 dark:text-white shadow-xs'
+        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+    }`}
+  >
+    <span class="text-xs">🇬🇧</span>
+    <span>EN</span>
+  </a>
+</div>
+
+<script>
+  // Preserve hash fragment (e.g., #experience, #contact) when switching language
+  const currentHash = window.location.hash;
+  if (currentHash) {
+    const btnId = document.getElementById('lang-btn-id') as HTMLAnchorElement;
+    const btnEn = document.getElementById('lang-btn-en') as HTMLAnchorElement;
+
+    if (btnId) btnId.href = `/${currentHash}`;
+    if (btnEn) btnEn.href = `/en/${currentHash}`;
+  }
+
+  // Save selected language to localStorage
+  document.querySelectorAll('.lang-switch-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const target = e.currentTarget as HTMLAnchorElement;
+      if (target.href.includes('/en')) {
+        localStorage.setItem('user-lang', 'en');
+      } else {
+        localStorage.setItem('user-lang', 'id');
+      }
+    });
+  });
+</script>
