@@ -47,12 +47,25 @@ const schemaData = {
 ---
 
 <!doctype html>
-<html lang="id" class="dark scroll-smooth">
+<html lang="id" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- Theme Flash Prevention Script -->
+    <script is:inline>
+      (function() {
+        const theme = localStorage.getItem('theme') || 'system';
+        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (theme === 'dark' || (theme === 'system' && systemDark)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
 
     <!-- Primary Meta Tags -->
     <title>{title}</title>
@@ -83,13 +96,13 @@ const schemaData = {
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
   </head>
-  <body class="bg-[#07090E] text-slate-200 antialiased selection:bg-indigo-500/30 selection:text-indigo-200">
-    <!-- Ambient Background Gradients -->
+  <body class="bg-slate-50 dark:bg-[#07090E] text-slate-800 dark:text-slate-200 antialiased selection:bg-indigo-500/20 selection:text-indigo-900 dark:selection:bg-indigo-500/30 dark:selection:text-indigo-200 transition-colors duration-200">
+    <!-- Ambient Background Gradients (Light & Dark) -->
     <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      <div class="absolute -top-40 -left-40 w-[600px] h-[600px] bg-indigo-600/10 rounded-full blur-[140px]"></div>
-      <div class="absolute top-[40%] -right-40 w-[500px] h-[500px] bg-cyan-600/10 rounded-full blur-[140px]"></div>
-      <div class="absolute -bottom-40 left-[30%] w-[600px] h-[600px] bg-violet-600/10 rounded-full blur-[140px]"></div>
-      <div class="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:32px_32px] opacity-25"></div>
+      <div class="absolute -top-40 -left-40 w-[600px] h-[600px] bg-indigo-500/10 dark:bg-indigo-600/10 rounded-full blur-[140px]"></div>
+      <div class="absolute top-[40%] -right-40 w-[500px] h-[500px] bg-cyan-500/10 dark:bg-cyan-600/10 rounded-full blur-[140px]"></div>
+      <div class="absolute -bottom-40 left-[30%] w-[600px] h-[600px] bg-violet-500/10 dark:bg-violet-600/10 rounded-full blur-[140px]"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(#94a3b8_1px,transparent_1px)] dark:bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:32px_32px] opacity-20 dark:opacity-25"></div>
     </div>
 
     <div class="relative z-10 flex flex-col min-h-screen">
@@ -113,7 +126,7 @@ const schemaData = {
             animate(
               el,
               { opacity: [0, 1], y: [24, 0] },
-              { duration: 0.6, easing: [0.16, 1, 0.3, 1] }
+              { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
             );
           });
         });

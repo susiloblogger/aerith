@@ -11,44 +11,44 @@ const categories = [
 ];
 ---
 
-<section id="skills" class="py-20 relative border-t border-slate-800/80">
+<section id="skills" class="py-20 relative border-t border-slate-200 dark:border-slate-800/80">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <!-- Section Header -->
     <div class="text-center max-w-2xl mx-auto mb-16 reveal-on-scroll">
-      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-bold uppercase tracking-widest mb-3 border border-cyan-500/20">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold uppercase tracking-widest mb-3 border border-cyan-500/20">
         Skills & Capabilities
       </div>
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
         Keahlian Strategis & <span class="text-gradient-accent">Tech Stack</span>
       </h2>
-      <p class="text-slate-400 mt-3 text-base sm:text-lg">
+      <p class="text-slate-600 dark:text-slate-400 mt-3 text-base sm:text-lg">
         Dipersenjatai dengan perangkat analitik modern, platform otomasi enterprise, dan stack teknologi terkini.
       </p>
     </div>
 
     <!-- 1. Core Proficiencies Grid -->
     <div class="mb-14">
-      <h3 class="text-lg font-bold text-white mb-6 flex items-center gap-2">
+      <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
         <span class="w-2.5 h-2.5 rounded-full bg-indigo-500"></span>
         <span>8 Pilar Kompetensi Utama</span>
       </h3>
       
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {resumeData.coreProficiencies.map((item, idx) => (
-          <div class="glass-card p-5 rounded-2xl border border-white/5 flex flex-col justify-between group reveal-on-scroll">
+          <div class="glass-card p-5 rounded-2xl border border-slate-200 dark:border-white/5 flex flex-col justify-between group reveal-on-scroll">
             <div>
-              <div class="text-xs font-bold text-indigo-400 mb-2 font-mono">0{idx + 1} //</div>
-              <h4 class="font-bold text-white text-base group-hover:text-cyan-300 transition-colors mb-2">
+              <div class="text-xs font-bold text-indigo-600 dark:text-indigo-400 mb-2 font-mono">0{idx + 1} //</div>
+              <h4 class="font-bold text-slate-900 dark:text-white text-base group-hover:text-cyan-600 dark:group-hover:text-cyan-300 transition-colors mb-2">
                 {item.title}
               </h4>
-              <p class="text-xs text-slate-400 leading-relaxed">
+              <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                 {item.desc}
               </p>
             </div>
-            <div class="mt-4 pt-3 border-t border-slate-800/60 flex items-center justify-between text-[11px] text-slate-500">
+            <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800/60 flex items-center justify-between text-[11px] text-slate-500">
               <span>Verified Proficiency</span>
-              <span class="text-emerald-400 font-semibold">10+ Yrs</span>
+              <span class="text-emerald-600 dark:text-emerald-400 font-semibold">10+ Yrs</span>
             </div>
           </div>
         ))}
@@ -56,25 +56,25 @@ const categories = [
     </div>
 
     <!-- 2. Tool Stack Showcase with Interactive Filter -->
-    <div class="glass-panel p-6 sm:p-8 rounded-3xl border border-white/5">
+    <div class="glass-panel p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-white/5">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
         <div>
-          <h3 class="text-xl font-bold text-white">Digital Tools & Technical Stack</h3>
-          <p class="text-xs sm:text-sm text-slate-400 mt-1">Platform dan perangkat lunak yang saya gunakan setiap hari untuk mengeksekusi hasil.</p>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white">Digital Tools & Technical Stack</h3>
+          <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">Platform dan perangkat lunak yang saya gunakan setiap hari untuk mengeksekusi hasil.</p>
         </div>
 
         <!-- Filter Pill Tabs -->
         <div class="flex flex-wrap gap-2" id="tool-tabs">
           <button 
             data-target="all" 
-            class="tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-500 text-white shadow-sm transition-all"
+            class="tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 dark:bg-indigo-500 text-white shadow-sm transition-all"
           >
             Semua Tools
           </button>
           {categories.map(cat => (
             <button 
               data-target={cat.id} 
-              class="tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800/90 text-slate-300 hover:text-white hover:bg-slate-700 transition-all border border-slate-700/60"
+              class="tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-slate-700 transition-all border border-slate-200 dark:border-slate-700/60"
             >
               <span>{cat.icon}</span> {cat.name}
             </button>
@@ -88,10 +88,10 @@ const categories = [
           tools.map(tool => (
             <div 
               data-category={catKey}
-              class="tool-item glass-card p-3 rounded-xl border border-white/5 flex items-center gap-2.5 transition-all"
+              class="tool-item glass-card p-3 rounded-xl border border-slate-200 dark:border-white/5 flex items-center gap-2.5 transition-all"
             >
-              <span class="w-2 h-2 rounded-full bg-cyan-400 shrink-0"></span>
-              <span class="text-xs sm:text-sm font-medium text-slate-200 truncate">{tool}</span>
+              <span class="w-2 h-2 rounded-full bg-cyan-500 dark:bg-cyan-400 shrink-0"></span>
+              <span class="text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-200 truncate">{tool}</span>
             </div>
           ))
         )}
@@ -108,13 +108,12 @@ const categories = [
 
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
-      // Update tab active state
       tabs.forEach(t => {
-        t.classList.remove('bg-indigo-500', 'text-white');
-        t.classList.add('bg-slate-800/90', 'text-slate-300');
+        t.classList.remove('bg-indigo-600', 'dark:bg-indigo-500', 'text-white');
+        t.classList.add('bg-slate-100', 'dark:bg-slate-800/90', 'text-slate-700', 'dark:text-slate-300');
       });
-      tab.classList.add('bg-indigo-500', 'text-white');
-      tab.classList.remove('bg-slate-800/90', 'text-slate-300');
+      tab.classList.add('bg-indigo-600', 'dark:bg-indigo-500', 'text-white');
+      tab.classList.remove('bg-slate-100', 'dark:bg-slate-800/90', 'text-slate-700', 'dark:text-slate-300');
 
       const target = tab.getAttribute('data-target');
 

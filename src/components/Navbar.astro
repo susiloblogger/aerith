@@ -1,5 +1,6 @@
 ---
 import { resumeData } from '../data/resume';
+import ThemeToggle from './ThemeToggle.astro';
 ---
 
 <header class="sticky top-0 z-50 w-full glass-nav backdrop-blur-xl transition-all duration-300">
@@ -16,34 +17,38 @@ import { resumeData } from '../data/resume';
           />
         </div>
         <div class="flex flex-col">
-          <span class="font-bold text-base sm:text-lg tracking-tight text-white group-hover:text-indigo-400 transition-colors">
+          <span class="font-bold text-base sm:text-lg tracking-tight text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
             {resumeData.personal.fullName}
           </span>
           <div class="flex items-center gap-1.5">
-            <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-            <span class="text-xs text-slate-400 font-medium hidden sm:inline-block">Open for Opportunities</span>
+            <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-ping"></span>
+            <span class="text-xs text-slate-500 dark:text-slate-400 font-medium hidden sm:inline-block">Open for Opportunities</span>
           </div>
         </div>
       </a>
 
       <!-- Desktop Navigation -->
-      <nav class="hidden md:flex items-center gap-1 lg:gap-2 text-sm font-medium text-slate-300">
-        <a href="#about" class="px-3 py-2 rounded-lg hover:text-white hover:bg-white/5 transition-all">About</a>
-        <a href="#skills" class="px-3 py-2 rounded-lg hover:text-white hover:bg-white/5 transition-all">Proficiencies</a>
-        <a href="#experience" class="px-3 py-2 rounded-lg hover:text-white hover:bg-white/5 transition-all">Experience</a>
-        <a href="#certifications" class="px-3 py-2 rounded-lg hover:text-white hover:bg-white/5 transition-all">Certifications</a>
-        <a href="#education" class="px-3 py-2 rounded-lg hover:text-white hover:bg-white/5 transition-all">Education</a>
+      <nav class="hidden md:flex items-center gap-1 lg:gap-2 text-sm font-medium text-slate-600 dark:text-slate-300">
+        <a href="#about" class="px-3 py-2 rounded-lg hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-all">About</a>
+        <a href="#skills" class="px-3 py-2 rounded-lg hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-all">Proficiencies</a>
+        <a href="#experience" class="px-3 py-2 rounded-lg hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-all">Experience</a>
+        <a href="#certifications" class="px-3 py-2 rounded-lg hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-all">Certifications</a>
+        <a href="#education" class="px-3 py-2 rounded-lg hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-all">Education</a>
       </nav>
 
-      <!-- CTA Buttons -->
-      <div class="flex items-center gap-3">
+      <!-- CTA Buttons & Theme Switcher -->
+      <div class="flex items-center gap-2.5 sm:gap-3">
+        
+        <!-- Theme Toggle Switcher -->
+        <ThemeToggle />
+
         <!-- Print / PDF Resume button -->
         <button 
           onclick="window.print()" 
           title="Print / Save CV as PDF"
-          class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700/60 transition-all shadow-sm"
+          class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold rounded-xl bg-slate-100 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-700/60 transition-all shadow-sm"
         >
-          <svg class="w-3.5 h-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg class="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
           </svg>
           <span>PDF / Print</span>
@@ -54,7 +59,7 @@ import { resumeData } from '../data/resume';
           href={resumeData.personal.whatsappUrl} 
           target="_blank" 
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg bg-gradient-to-r from-indigo-500 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 text-white shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all"
+          class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-semibold rounded-xl bg-gradient-to-r from-indigo-500 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 text-white shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all"
         >
           <span>Hubungi Saya</span>
           <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -66,7 +71,7 @@ import { resumeData } from '../data/resume';
         <button 
           id="mobile-menu-btn" 
           aria-label="Toggle navigation menu"
-          class="md:hidden p-2 rounded-lg bg-slate-800/70 border border-slate-700/60 text-slate-300 hover:text-white"
+          class="md:hidden p-2 rounded-xl bg-slate-100 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700/60 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
         >
           <svg id="menu-icon-bars" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -81,16 +86,16 @@ import { resumeData } from '../data/resume';
   </div>
 
   <!-- Mobile Drawer -->
-  <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-6 border-b border-slate-800/80 bg-[#0A0D14]/95 backdrop-blur-xl">
+  <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-6 border-b border-slate-200 dark:border-slate-800/80 bg-white/95 dark:bg-[#0A0D14]/95 backdrop-blur-xl">
     <div class="flex flex-col gap-2 text-sm font-medium">
-      <a href="#about" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-slate-800/80 text-slate-200">About</a>
-      <a href="#skills" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-slate-800/80 text-slate-200">Proficiencies</a>
-      <a href="#experience" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-slate-800/80 text-slate-200">Experience</a>
-      <a href="#certifications" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-slate-800/80 text-slate-200">Certifications</a>
-      <a href="#education" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-slate-800/80 text-slate-200">Education</a>
-      <a href="#contact" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-slate-800/80 text-slate-200">Contact Form</a>
-      <div class="pt-2 border-t border-slate-800 mt-1 flex gap-2">
-        <button onclick="window.print()" class="w-full py-2 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 text-center">
+      <a href="#about" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 text-slate-700 dark:text-slate-200">About</a>
+      <a href="#skills" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 text-slate-700 dark:text-slate-200">Proficiencies</a>
+      <a href="#experience" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 text-slate-700 dark:text-slate-200">Experience</a>
+      <a href="#certifications" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 text-slate-700 dark:text-slate-200">Certifications</a>
+      <a href="#education" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 text-slate-700 dark:text-slate-200">Education</a>
+      <a href="#contact" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/80 text-slate-700 dark:text-slate-200">Contact Form</a>
+      <div class="pt-2 border-t border-slate-200 dark:border-slate-800 mt-1 flex gap-2">
+        <button onclick="window.print()" class="w-full py-2 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-center">
           Print / Save PDF
         </button>
       </div>
