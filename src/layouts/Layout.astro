@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 import FloatingCTA from '../components/FloatingCTA.astro';
 import { resumeData } from '../data/resume';
 import { translations, type Locale } from '../data/i18n';
+import Analytics from '@vercel/analytics/astro'
 
 interface Props {
   lang?: Locale;
@@ -105,6 +106,9 @@ const schemaData = {
 
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+
+    <!-- Vercel Analytics -->
+    <Analytics />
   </head>
   <body class="bg-slate-50 dark:bg-[#07090E] text-slate-800 dark:text-slate-200 antialiased selection:bg-indigo-500/20 selection:text-indigo-900 dark:selection:bg-indigo-500/30 dark:selection:text-indigo-200 transition-colors duration-200">
     <!-- Ambient Background Gradients (Light & Dark) -->
