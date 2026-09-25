@@ -184,13 +184,13 @@ export const portfolioData: PortfolioItem[] = [
     id: 'case-ecommerce-growth-500',
     category: 'study-case',
     title: 'Traffic Growth 500% & Revenue Scaling dalam 6 Bulan',
-    client: 'ModaNusa Apparel',
+    client: 'PT Gama Abyakta Sejahtera (Ecofix)',
     description: {
-      id: 'Transformasi menyeluruh strategi digital marketing yang menggabungkan restrukturisasi SEO teknis, paid funnel optimasi, dan automasi retensi email.',
-      en: 'Full-scale digital growth turnaround combining technical SEO restructuring, paid acquisition funnel overhaul, and automated email retention.'
+      id: 'Transformasi menyeluruh strategi digital marketing yang menggabungkan restrukturisasi SEO teknis, paid funnel optimasi, dan automasi retensi WhatsApp.',
+      en: 'Full-scale digital growth turnaround combining technical SEO restructuring, paid acquisition funnel overhaul, and automated WhatsApp retention.'
     },
     url: 'https://example.com/case-studies/modanusa',
-    techStack: ['Google Analytics 4', 'BigQuery', 'Looker Studio', 'Klaviyo'],
+    techStack: ['Google Analytics 4', 'Astro', 'Looker Studio', 'Klaviyo'],
     metrics: [
       { label: 'Organic Traffic', value: '+520%' },
       { label: 'Gross Revenue', value: '+380%' }

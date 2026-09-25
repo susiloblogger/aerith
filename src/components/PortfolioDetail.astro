@@ -316,41 +316,6 @@ const waLink = `https://wa.me/6287785511995?text=${waText}`;
 
     </div>
 
-    {/* High-Conversion Inbound CTA Banner */}
-    <section class="glass-card rounded-3xl p-8 sm:p-10 border border-indigo-500/30 text-center relative overflow-hidden mb-16 bg-gradient-to-b from-indigo-500/[0.04] to-transparent">
-      <div class="max-w-xl mx-auto">
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-bold uppercase tracking-widest mb-3 border border-indigo-500/20">
-          💼 Growth Collaboration
-        </div>
-        <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white mb-3">
-          {td.ctaTitle}
-        </h2>
-        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
-          {td.ctaSubtitle}
-        </p>
-
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
-          <a 
-            href={waLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold text-xs sm:text-sm shadow-md shadow-emerald-500/20 hover:-translate-y-0.5 transition-all"
-          >
-            <span>💬</span>
-            <span>{td.ctaButtonWa}</span>
-          </a>
-
-          <a 
-            href={`${homeUrl}#contact`}
-            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-bold text-xs sm:text-sm border border-slate-200 dark:border-slate-700/60 transition-all"
-          >
-            <span>✉️</span>
-            <span>{td.ctaButtonContact}</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
     {/* Related Projects Navigation */}
     {relatedItems.length > 0 && (
       <section class="border-t border-slate-200 dark:border-slate-800 pt-10">
