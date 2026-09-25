@@ -13,7 +13,6 @@ const categoryConfig: Record<PortfolioCategory, {
   icon: string;
   badgeClass: string;
   titleHoverClass: string;
-  metricValClass: string;
   linkClass: string;
   label: string;
 }> = {
@@ -21,7 +20,6 @@ const categoryConfig: Record<PortfolioCategory, {
     icon: '💻',
     badgeClass: 'bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border-indigo-500/20',
     titleHoverClass: 'group-hover:text-indigo-600 dark:group-hover:text-indigo-400',
-    metricValClass: 'text-indigo-600 dark:text-indigo-400',
     linkClass: 'text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300',
     label: t.categories.website
   },
@@ -29,7 +27,6 @@ const categoryConfig: Record<PortfolioCategory, {
     icon: '📋',
     badgeClass: 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border-emerald-500/20',
     titleHoverClass: 'group-hover:text-emerald-600 dark:group-hover:text-emerald-400',
-    metricValClass: 'text-emerald-600 dark:text-emerald-400',
     linkClass: 'text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300',
     label: t.categories.studyCase
   },
@@ -37,7 +34,6 @@ const categoryConfig: Record<PortfolioCategory, {
     icon: '🔍',
     badgeClass: 'bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 border-cyan-500/20',
     titleHoverClass: 'group-hover:text-cyan-600 dark:group-hover:text-cyan-400',
-    metricValClass: 'text-cyan-600 dark:text-cyan-400',
     linkClass: 'text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300',
     label: t.categories.seo
   },
@@ -45,7 +41,6 @@ const categoryConfig: Record<PortfolioCategory, {
     icon: '🎯',
     badgeClass: 'bg-violet-500/10 text-violet-700 dark:text-violet-300 border-violet-500/20',
     titleHoverClass: 'group-hover:text-violet-600 dark:group-hover:text-violet-400',
-    metricValClass: 'text-violet-600 dark:text-violet-400',
     linkClass: 'text-violet-600 dark:text-violet-400 hover:text-violet-700 dark:hover:text-violet-300',
     label: t.categories.ads
   }
@@ -258,7 +253,7 @@ const homeUrl = currentLang === 'en' ? '/en/' : '/';
 
                 <!-- Tech Stack Chips -->
                 {item.techStack && item.techStack.length > 0 && (
-                  <div class="mb-4">
+                  <div>
                     <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-2 font-mono">
                       {t.techStack}
                     </div>
@@ -269,22 +264,6 @@ const homeUrl = currentLang === 'en' ? '/en/' : '/';
                         </span>
                       ))}
                     </div>
-                  </div>
-                )}
-
-                <!-- Quantifiable Metrics -->
-                {item.metrics && item.metrics.length > 0 && (
-                  <div class="grid grid-cols-2 gap-2 pt-2 border-t border-slate-200/60 dark:border-slate-800/60">
-                    {item.metrics.map((metric) => (
-                      <div class="p-2 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/5">
-                        <div class={`text-sm sm:text-base font-extrabold ${config.metricValClass}`}>
-                          {metric.value}
-                        </div>
-                        <div class="text-[10px] text-slate-500 dark:text-slate-400 font-medium truncate">
-                          {metric.label}
-                        </div>
-                      </div>
-                    ))}
                   </div>
                 )}
               </div>
