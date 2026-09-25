@@ -272,15 +272,6 @@ const homeUrl = currentLang === 'en' ? '/en/' : '/';
             <!-- Card Footer -->
             <div class="px-5 pb-5 pt-0">
               <div class="pt-3 border-t border-slate-200/80 dark:border-slate-800/60 flex items-center justify-between text-xs">
-                {item.featured ? (
-                  <span class="inline-flex items-center gap-1 text-[11px] font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider">
-                    ⭐ Featured
-                  </span>
-                ) : (
-                  <span class="text-[11px] text-slate-400 dark:text-slate-500 font-mono">
-                    ID: {item.id}
-                  </span>
-                )}
                 {item.url ? (
                   <a 
                     href={item.url} 
