@@ -33,7 +33,7 @@ export const portfolioData: PortfolioItem[] = [
       id: 'Pengembangan platform e-commerce busana modern dengan arsitektur headless yang cepat, integrasi payment gateway otomatis, serta optimasi Core Web Vitals.',
       en: 'Development of a fast headless modern fashion e-commerce platform featuring automated payment gateway integrations and Core Web Vitals optimization.'
     },
-    thumbnail: '/images/portfolio/web-fashion.jpg',
+    thumbnail: '/images/portfolio/web-fashion.svg',
     url: 'https://urbanstyle.example.id',
     techStack: ['Astro', 'TypeScript', 'Tailwind CSS', 'Midtrans API'],
     metrics: [
@@ -52,7 +52,7 @@ export const portfolioData: PortfolioItem[] = [
       id: 'Portal pelacakan kargo dan sistem pemesanan kontainer terpadu untuk perusahaan logistik nasional dengan dashboard analitik real-time.',
       en: 'Integrated freight tracking and container booking portal for a national logistics provider featuring real-time analytics dashboards.'
     },
-    thumbnail: '/images/portfolio/web-logistics.jpg',
+    thumbnail: '/images/portfolio/web-logistics.svg',
     url: 'https://transnusantara.example.com',
     techStack: ['Laravel', 'Vue.js', 'PostgreSQL', 'Tailwind CSS'],
     metrics: [
@@ -71,7 +71,7 @@ export const portfolioData: PortfolioItem[] = [
       id: 'Pembaruan desain website korporat tekfin dengan kalkulator pinjaman interaktif dan formulir aplikasi multi-langkah berkoneksi API instan.',
       en: 'Fintech corporate website redesign featuring an interactive loan calculator and multi-step lead capture funnel with instant API sync.'
     },
-    thumbnail: '/images/portfolio/web-fintech.jpg',
+    thumbnail: '/images/portfolio/web-fintech.svg',
     url: 'https://modalkarya.example.com',
     techStack: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript'],
     metrics: [
@@ -90,7 +90,7 @@ export const portfolioData: PortfolioItem[] = [
       id: 'Aplikasi web reservasi janji temu dokter spesialis dan integrasi riwayat konsultasi medis yang aman serta responsif di semua perangkat.',
       en: 'Doctor appointment reservation and medical consultation history web application optimized for security and responsive user experience.'
     },
-    thumbnail: '/images/portfolio/web-healthcare.jpg',
+    thumbnail: '/images/portfolio/web-healthcare.svg',
     url: 'https://kliniksehat.example.id',
     techStack: ['React', 'Node.js', 'Express', 'Tailwind CSS'],
     metrics: [
@@ -109,7 +109,7 @@ export const portfolioData: PortfolioItem[] = [
       id: 'Situs web katalog properti mewah dengan tur virtual interaktif 360°, filter pencarian cerdas, dan integrasi WhatsApp CRM instan.',
       en: 'Luxury property portfolio website with 360° interactive virtual tours, smart search filters, and instant WhatsApp CRM routing.'
     },
-    thumbnail: '/images/portfolio/web-property.jpg',
+    thumbnail: '/images/portfolio/web-property.svg',
     url: 'https://purikencana.example.com',
     techStack: ['Astro', 'Tailwind CSS', 'Alpine.js', 'Leaflet.js'],
     metrics: [
@@ -128,7 +128,7 @@ export const portfolioData: PortfolioItem[] = [
       id: 'Landing page SaaS dengan animasi interaktif halus, perbandingan paket harga dinamis, dan sistem orientasi pendaftaran pengguna baru.',
       en: 'SaaS marketing website featuring smooth micro-animations, dynamic pricing matrix, and seamless user registration onboarding.'
     },
-    thumbnail: '/images/portfolio/web-saas.jpg',
+    thumbnail: '/images/portfolio/web-saas.svg',
     url: 'https://automateflow.example.io',
     techStack: ['Next.js', 'Framer Motion', 'Tailwind CSS', 'TypeScript'],
     metrics: [
@@ -146,7 +146,7 @@ export const portfolioData: PortfolioItem[] = [
       id: 'Platform pembelajaran digital untuk kursus karir teknologi dengan video player adaptif, kuis interaktif, dan sertifikat otomatis.',
       en: 'Digital learning platform for tech career bootcamps with adaptive video streaming, interactive quizzes, and automated certificate issuance.'
     },
-    thumbnail: '/images/portfolio/web-edutech.jpg',
+    thumbnail: '/images/portfolio/web-edutech.svg',
     url: 'https://karierdigital.example.id',
     techStack: ['Laravel', 'Livewire', 'Alpine.js', 'Tailwind CSS'],
     metrics: [
@@ -165,7 +165,7 @@ export const portfolioData: PortfolioItem[] = [
       id: 'Sistem web pemesanan meja dan menu digital QR-code untuk jaringan restoran dengan 20+ cabang di berbagai kota besar.',
       en: 'Digital QR-code menu and table booking web system engineered for a multi-outlet restaurant chain across 20+ locations.'
     },
-    thumbnail: '/images/portfolio/web-fnb.jpg',
+    thumbnail: '/images/portfolio/web-fnb.svg',
     url: 'https://nusantarabistro.example.id',
     techStack: ['Vue.js', 'Tailwind CSS', 'Firebase', 'PWA'],
     metrics: [

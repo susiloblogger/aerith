@@ -206,18 +206,38 @@ const homeUrl = currentLang === 'en' ? '/en/' : '/';
             class="portfolio-card glass-card rounded-2xl border border-slate-200/80 dark:border-white/5 overflow-hidden group reveal-on-scroll flex flex-col justify-between"
           >
             <div>
-              <!-- Card Header: Category Badge + Year -->
-              <div class="p-5 pb-0 flex items-center justify-between">
-                <span class={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md text-[11px] font-bold uppercase tracking-wider border ${config.badgeClass}`}>
-                  <span>{config.icon}</span>
-                  <span>{config.label}</span>
-                </span>
-                {item.year && (
-                  <span class="text-xs font-mono font-semibold text-slate-400 dark:text-slate-500">
-                    {item.year}
+              {item.thumbnail ? (
+                <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-100 dark:bg-slate-900 border-b border-slate-200/80 dark:border-white/5">
+                  <img 
+                    src={item.thumbnail} 
+                    alt={item.title}
+                    loading="lazy"
+                    class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <!-- Floating Category Badge on Thumbnail -->
+                  <div class="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-lg backdrop-blur-md bg-slate-900/80 text-white text-[11px] font-bold border border-white/15 shadow-sm">
+                    <span>{config.icon}</span>
+                    <span>{config.label}</span>
+                  </div>
+                  {item.year && (
+                    <div class="absolute top-3 right-3 px-2 py-0.5 rounded-md backdrop-blur-md bg-slate-900/80 text-slate-200 text-xs font-mono font-semibold border border-white/15">
+                      {item.year}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <div class="p-5 pb-0 flex items-center justify-between">
+                  <span class={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md text-[11px] font-bold uppercase tracking-wider border ${config.badgeClass}`}>
+                    <span>{config.icon}</span>
+                    <span>{config.label}</span>
                   </span>
-                )}
-              </div>
+                  {item.year && (
+                    <span class="text-xs font-mono font-semibold text-slate-400 dark:text-slate-500">
+                      {item.year}
+                    </span>
+                  )}
+                </div>
+              )}
 
               <!-- Card Body -->
               <div class="p-5">

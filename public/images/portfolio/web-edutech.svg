@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgEdu" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E1B4B" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+    <linearGradient id="indigoGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366F1" />
+      <stop offset="100%" stop-color="#A855F7" />
+    </linearGradient>
+  </defs>
+  <rect width="640" height="400" rx="16" fill="url(#bgEdu)" />
+  <rect width="640" height="42" fill="#1E293B" opacity="0.9" />
+  <circle cx="24" cy="21" r="5" fill="#EF4444" />
+  <circle cx="40" cy="21" r="5" fill="#F59E0B" />
+  <circle cx="56" cy="21" r="5" fill="#10B981" />
+  <rect x="80" y="11" width="280" height="20" rx="6" fill="#0F172A" opacity="0.6" />
+  <text x="96" y="25" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">karierdigital.id/bootcamp/fullstack</text>
+  <!-- Nav Header -->
+  <text x="32" y="80" fill="#A5B4FC" font-family="system-ui, sans-serif" font-size="16" font-weight="bold">🎓 KARIERDIGITAL</text>
+  <text x="210" y="80" fill="#C7D2FE" font-family="system-ui, sans-serif" font-size="11">Silabus</text>
+  <text x="280" y="80" fill="#C7D2FE" font-family="system-ui, sans-serif" font-size="11">Tutor Expert</text>
+  <text x="370" y="80" fill="#C7D2FE" font-family="system-ui, sans-serif" font-size="11">Testimoni</text>
+  <rect x="495" y="65" width="115" height="28" rx="8" fill="url(#indigoGrad)" />
+  <text x="515" y="83" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">Daftar Batch 14</text>
+  <!-- Main Video Player / LMS Mockup -->
+  <rect x="32" y="106" width="370" height="270" rx="14" fill="#1E293B" stroke="#334155" />
+  <!-- Simulated Video screen -->
+  <rect x="44" y="118" width="346" height="150" rx="10" fill="#0F172A" />
+  <circle cx="217" cy="193" r="26" fill="#6366F1" opacity="0.8" />
+  <polygon points="212,183 227,193 212,203" fill="#FFFFFF" />
+  <text x="56" y="140" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">Modul 04: Arsitektur Modern Web &amp; API Integration</text>
+  <text x="44" y="296" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="15" font-weight="bold">Full-Stack Growth Engineering</text>
+  <text x="44" y="316" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">12 Minggu Intensif • Proyek Portfolio Riil • Jaminan Kerja</text>
+  <!-- Progress Bar -->
+  <rect x="44" y="336" width="346" height="8" rx="4" fill="#334155" />
+  <rect x="44" y="336" width="220" height="8" rx="4" fill="url(#indigoGrad)" />
+  <text x="44" y="362" fill="#A5B4FC" font-family="system-ui, sans-serif" font-size="10">Progress: 64% Selesai (28 / 42 Materi)</text>
+  <!-- Right Column Course Syllabus List -->
+  <rect x="420" y="106" width="190" height="270" rx="14" fill="#1E293B" stroke="#334155" />
+  <text x="435" y="134" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="12" font-weight="bold">Daftar Modul</text>
+  <!-- Item 1 -->
+  <rect x="435" y="150" width="160" height="42" rx="8" fill="#312E81" stroke="#4F46E5" />
+  <text x="445" y="168" fill="#C7D2FE" font-family="system-ui, sans-serif" font-size="10" font-weight="bold">✓ 01. HTML5 &amp; Modern CSS</text>
+  <text x="445" y="182" fill="#818CF8" font-family="system-ui, sans-serif" font-size="9">4 Video • 1 Tugas</text>
+  <!-- Item 2 -->
+  <rect x="435" y="200" width="160" height="42" rx="8" fill="#312E81" stroke="#4F46E5" />
+  <text x="445" y="218" fill="#C7D2FE" font-family="system-ui, sans-serif" font-size="10" font-weight="bold">✓ 02. JavaScript &amp; TypeScript</text>
+  <text x="445" y="232" fill="#818CF8" font-family="system-ui, sans-serif" font-size="9">6 Video • 2 Kuis</text>
+  <!-- Item 3 -->
+  <rect x="435" y="250" width="160" height="42" rx="8" fill="#4338CA" />
+  <text x="445" y="268" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="10" font-weight="bold">▶ 03. Astro &amp; React SSR</text>
+  <text x="445" y="282" fill="#A5B4FC" font-family="system-ui, sans-serif" font-size="9">Sedang Dipelajari</text>
+  <!-- Item 4 -->
+  <rect x="435" y="300" width="160" height="42" rx="8" fill="#0F172A" />
+  <text x="445" y="318" fill="#64748B" font-family="system-ui, sans-serif" font-size="10">🔒 04. BigQuery Analytics</text>
+  <text x="445" y="332" fill="#475569" font-family="system-ui, sans-serif" font-size="9">Terkunci</text>
+</svg>
