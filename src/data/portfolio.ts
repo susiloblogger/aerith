@@ -44,20 +44,20 @@ export const portfolioData: PortfolioItem[] = [
     featured: true
   },
   {
-    id: 'web-b2b-logistics-portal',
+    id: 'web-sabili-media-portal',
     category: 'website',
-    title: 'Enterprise B2B Logistics & Freight Portal',
-    client: 'TransNusantara Cargo',
+    title: 'Digital Media & Islamic News Publishing Portal',
+    client: 'Yayasan Sabili Media Kita (Sabili.id)',
     description: {
-      id: 'Portal pelacakan kargo dan sistem pemesanan kontainer terpadu untuk perusahaan logistik nasional dengan dashboard analitik real-time.',
-      en: 'Integrated freight tracking and container booking portal for a national logistics provider featuring real-time analytics dashboards.'
+      id: 'Pengembangan portal media digital dan publikasi berita islami modern dengan arsitektur Ghost CMS berkecepatan tinggi, integrasi Varnish HTTP accelerator, caching Cloudflare, serta optimasi Core Web Vitals untuk jutaan pembaca bulanan.',
+      en: 'Development of a high-performance digital publishing and Islamic news media portal powered by Ghost CMS, Varnish HTTP reverse-proxy caching, Cloudflare CDN edge distribution, and Core Web Vitals optimization for high-traffic readership.'
     },
-    thumbnail: '/images/portfolio/web-logistics.svg',
-    url: 'https://transnusantara.example.com',
-    techStack: ['Laravel', 'Vue.js', 'PostgreSQL', 'Tailwind CSS'],
+    thumbnail: '/images/portfolio/sabili.png',
+    url: 'https://sabili.id',
+    techStack: ['Ghost', 'MySQL', 'Varnish', 'Cloudflare'],
     metrics: [
-      { label: 'Tracking Speed', value: '<0.4s' },
-      { label: 'Quote Requests', value: '+115%' }
+      { label: 'Server TTFB', value: '<120ms' },
+      { label: 'Cache Hit Ratio', value: '96%' }
     ],
     year: '2023',
     featured: true
