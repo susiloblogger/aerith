@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgSaas" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F0C20" />
+      <stop offset="100%" stop-color="#1B143F" />
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8B5CF6" />
+      <stop offset="100%" stop-color="#3B82F6" />
+    </linearGradient>
+  </defs>
+  <rect width="640" height="400" rx="16" fill="url(#bgSaas)" />
+  <rect width="640" height="42" fill="#181236" opacity="0.9" />
+  <circle cx="24" cy="21" r="5" fill="#EF4444" />
+  <circle cx="40" cy="21" r="5" fill="#F59E0B" />
+  <circle cx="56" cy="21" r="5" fill="#10B981" />
+  <rect x="80" y="11" width="280" height="20" rx="6" fill="#0F0C20" opacity="0.6" />
+  <text x="96" y="25" fill="#A78BFA" font-family="system-ui, sans-serif" font-size="11">automateflow.io/dashboard/workflows</text>
+  <!-- Nav Header -->
+  <text x="32" y="80" fill="#C4B5FD" font-family="system-ui, sans-serif" font-size="16" font-weight="bold">⚡ AUTOMATEFLOW</text>
+  <text x="220" y="80" fill="#DDD6FE" font-family="system-ui, sans-serif" font-size="11">Workflows</text>
+  <text x="300" y="80" fill="#DDD6FE" font-family="system-ui, sans-serif" font-size="11">Triggers</text>
+  <text x="370" y="80" fill="#DDD6FE" font-family="system-ui, sans-serif" font-size="11">Integrations</text>
+  <rect x="495" y="65" width="115" height="28" rx="8" fill="url(#purpleGrad)" />
+  <text x="515" y="83" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">Start Free Trial</text>
+  <!-- Main Workflow Canvas Preview -->
+  <rect x="32" y="106" width="576" height="270" rx="14" fill="#16113A" stroke="#4C1D95" stroke-width="1" />
+  <!-- Workflow Nodes -->
+  <!-- Node 1: Webhook -->
+  <rect x="60" y="140" width="130" height="65" rx="10" fill="#1E1B4B" stroke="#6366F1" />
+  <circle cx="80" cy="162" r="8" fill="#6366F1" />
+  <text x="96" y="166" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">New Lead Form</text>
+  <text x="80" y="190" fill="#A5B4FC" font-family="system-ui, sans-serif" font-size="10">Webhook Trigger</text>
+  <!-- Connector 1 -->
+  <line x1="190" y1="172" x2="250" y2="172" stroke="#818CF8" stroke-width="2" stroke-dasharray="4,4" />
+  <!-- Node 2: AI Segmentation -->
+  <rect x="250" y="140" width="140" height="65" rx="10" fill="#1E1B4B" stroke="#8B5CF6" />
+  <circle cx="270" cy="162" r="8" fill="#A855F7" />
+  <text x="286" y="166" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">AI Scoring</text>
+  <text x="270" y="190" fill="#D8B4FE" font-family="system-ui, sans-serif" font-size="10">High Intent &gt; 85%</text>
+  <!-- Connector 2 branch -->
+  <line x1="390" y1="172" x2="450" y2="140" stroke="#818CF8" stroke-width="2" stroke-dasharray="4,4" />
+  <line x1="390" y1="172" x2="450" y2="210" stroke="#818CF8" stroke-width="2" stroke-dasharray="4,4" />
+  <!-- Node 3a: WhatsApp Alert -->
+  <rect x="450" y="115" width="140" height="50" rx="8" fill="#064E3B" stroke="#10B981" />
+  <text x="466" y="136" fill="#34D399" font-family="system-ui, sans-serif" font-size="10" font-weight="bold">Direct WhatsApp</text>
+  <text x="466" y="152" fill="#A7F3D0" font-family="system-ui, sans-serif" font-size="9">Notify Sales Rep</text>
+  <!-- Node 3b: Nurture Sequence -->
+  <rect x="450" y="190" width="140" height="50" rx="8" fill="#1E1B4B" stroke="#3B82F6" />
+  <text x="466" y="211" fill="#60A5FA" font-family="system-ui, sans-serif" font-size="10" font-weight="bold">Email Nurture</text>
+  <text x="466" y="227" fill="#93C5FD" font-family="system-ui, sans-serif" font-size="9">7-Day Drip Campaign</text>
+  <!-- Bottom SaaS Metrics Banner -->
+  <rect x="60" y="270" width="520" height="85" rx="10" fill="#0F0C20" stroke="#2E1065" />
+  <text x="80" y="298" fill="#A78BFA" font-family="system-ui, sans-serif" font-size="11">Automations Executed</text>
+  <text x="80" y="332" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="22" font-weight="bold">4,829,190 / bln</text>
+  <text x="320" y="298" fill="#A78BFA" font-family="system-ui, sans-serif" font-size="11">Average Response Speed</text>
+  <text x="320" y="332" fill="#10B981" font-family="system-ui, sans-serif" font-size="22" font-weight="bold">&lt; 1.2 detik</text>
+</svg>

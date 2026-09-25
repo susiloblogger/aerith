@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgProperty" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181B" />
+      <stop offset="100%" stop-color="#27272A" />
+    </linearGradient>
+    <linearGradient id="goldAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+  </defs>
+  <rect width="640" height="400" rx="16" fill="url(#bgProperty)" />
+  <rect width="640" height="42" fill="#27272A" opacity="0.9" />
+  <circle cx="24" cy="21" r="5" fill="#EF4444" />
+  <circle cx="40" cy="21" r="5" fill="#F59E0B" />
+  <circle cx="56" cy="21" r="5" fill="#10B981" />
+  <rect x="80" y="11" width="280" height="20" rx="6" fill="#18181B" opacity="0.6" />
+  <text x="96" y="25" fill="#A1A1AA" font-family="system-ui, sans-serif" font-size="11">purikencana.com/residences/grand-suite</text>
+  <!-- Nav Header -->
+  <text x="32" y="80" fill="#FBBF24" font-family="system-ui, sans-serif" font-size="16" font-weight="bold">PURI KENCANA REALTY</text>
+  <text x="240" y="80" fill="#E4E4E7" font-family="system-ui, sans-serif" font-size="11">Villas</text>
+  <text x="300" y="80" fill="#E4E4E7" font-family="system-ui, sans-serif" font-size="11">Penthouse</text>
+  <text x="380" y="80" fill="#E4E4E7" font-family="system-ui, sans-serif" font-size="11">Virtual Tour 360°</text>
+  <rect x="500" y="65" width="110" height="28" rx="8" fill="url(#goldAccent)" />
+  <text x="522" y="83" fill="#18181B" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">Book Viewing</text>
+  <!-- Hero Villa Showcase -->
+  <rect x="32" y="106" width="380" height="270" rx="14" fill="#27272A" stroke="#3F3F46" />
+  <!-- Simulated Villa Image -->
+  <rect x="44" y="118" width="356" height="150" rx="10" fill="#3F3F46" />
+  <circle cx="222" cy="180" r="28" fill="#F59E0B" opacity="0.8" />
+  <polygon points="216,168 234,180 216,192" fill="#18181B" />
+  <rect x="54" y="128" width="96" height="22" rx="6" fill="#18181B" opacity="0.75" />
+  <text x="64" y="143" fill="#FBBF24" font-family="system-ui, sans-serif" font-size="10" font-weight="bold">360° VIRTUAL TOUR</text>
+  <text x="44" y="296" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="16" font-weight="bold">The Royal Pavilion Residence</text>
+  <text x="44" y="316" fill="#A1A1AA" font-family="system-ui, sans-serif" font-size="11">Bukit Golflinks, Sentul Selatan • 5 Bed • 6 Bath • 850 m²</text>
+  <text x="44" y="348" fill="#FBBF24" font-family="system-ui, sans-serif" font-size="20" font-weight="bold">Rp 18.500.000.000</text>
+  <rect x="290" y="332" width="110" height="30" rx="8" fill="url(#goldAccent)" />
+  <text x="306" y="351" fill="#18181B" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">Chat Agent →</text>
+  <!-- Right Column Thumbnails -->
+  <rect x="428" y="106" width="180" height="128" rx="12" fill="#27272A" stroke="#3F3F46" />
+  <rect x="438" y="116" width="160" height="60" rx="8" fill="#3F3F46" />
+  <text x="438" y="195" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">Emerald Seafront Penthouse</text>
+  <text x="438" y="215" fill="#FBBF24" font-family="system-ui, sans-serif" font-size="12" font-weight="bold">Rp 12.8 M</text>
+  <rect x="428" y="248" width="180" height="128" rx="12" fill="#27272A" stroke="#3F3F46" />
+  <rect x="438" y="258" width="160" height="60" rx="8" fill="#3F3F46" />
+  <text x="438" y="337" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">Serenity Cliffside Villa</text>
+  <text x="438" y="357" fill="#FBBF24" font-family="system-ui, sans-serif" font-size="12" font-weight="bold">Rp 24.0 M</text>
+</svg>
