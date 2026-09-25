@@ -97,24 +97,24 @@ export const portfolioData: PortfolioItem[] = [
       { label: 'Page Speed', value: '99/100' },
       { label: 'Project Inquiries', value: '+120%' }
     ],
-    year: '2023',
+    year: '2026',
     featured: false
   },
   {
-    id: 'web-luxury-property-showcase',
+    id: 'web-laznas-dewan-dakwah',
     category: 'website',
-    title: 'Luxury Real Estate Showcase & Virtual Tour',
-    client: 'Puri Kencana Realty',
+    title: 'National Zakat & Philanthropic Crowdfunding Platform',
+    client: 'LAZNAS Dewan Dakwah',
     description: {
-      id: 'Situs web katalog properti mewah dengan tur virtual interaktif 360°, filter pencarian cerdas, dan integrasi WhatsApp CRM instan.',
-      en: 'Luxury property portfolio website with 360° interactive virtual tours, smart search filters, and instant WhatsApp CRM routing.'
+      id: 'Pengembangan platform digital crowdfunding zakat, infaq, dan sedekah nasional untuk LAZNAS Dewan Dakwah berbasis Laravel dan Vue.js, dilengkapi kalkulator zakat otomatis, multi-payment gateway perbankan & QRIS, serta sistem pelaporan donasi transparan.',
+      en: 'National digital zakat, infaq, and philanthropic crowdfunding platform development for LAZNAS Dewan Dakwah engineered with Laravel and Vue.js, featuring automated zakat calculators, multi-payment gateway integration (Virtual Account & QRIS), and transparent real-time donation reporting.'
     },
-    thumbnail: '/images/portfolio/web-property.svg',
-    url: 'https://purikencana.example.com',
-    techStack: ['Astro', 'Tailwind CSS', 'Alpine.js', 'Leaflet.js'],
+    thumbnail: '/images/portfolio/laznas.png',
+    url: 'https://laznasdewandakwah.or.id/',
+    techStack: ['Laravel', 'VueJS', 'Cloudflare', 'MySQL'],
     metrics: [
-      { label: 'Inquiry Rate', value: '+92%' },
-      { label: 'Mobile Performance', value: '98/100' }
+      { label: 'Online Donations', value: '+180%' },
+      { label: 'Payment Success', value: '99.4%' }
     ],
     year: '2022',
     featured: false
