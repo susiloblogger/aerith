@@ -1,0 +1,13 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Portfolio from '../components/Portfolio.astro';
+import { translations } from '../data/i18n';
+
+const lang = 'id';
+const t = translations[lang].portfolio;
+---
+
+<Layout lang={lang} title={`Portfolio — Susilo Widakdo, ST.`} description={t.subtitle}>
+  <!-- Portfolio Showcase Section -->
+  <Portfolio currentLang={lang} />
+</Layout>
