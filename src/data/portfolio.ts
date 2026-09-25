@@ -27,7 +27,7 @@ export const portfolioData: PortfolioItem[] = [
   {
     id: 'web-ecofix-facility-services',
     category: 'website',
-    title: 'Facility Maintenance & Engineering Services Company Profile',
+    title: 'Facility Maintenance & Engineering Company Profile',
     client: 'PT Gama Abyakta Sejahtera (Ecofix)',
     description: {
       id: 'Pengembangan website company profile modern untuk penyedia jasa engineering & facility maintenance gedung (saluran mampet, grease trap, HVAC, pest control) dengan integrasi Ghost CMS headless, arsitektur Astro ultra-cepat, dan optimasi konversi lead WhatsApp.',
@@ -139,20 +139,20 @@ export const portfolioData: PortfolioItem[] = [
     featured: false
   },
   {
-    id: 'web-edutech-lms-portal',
+    id: 'web-pesantren-bina-insan-kamil',
     category: 'website',
-    title: 'EduTech Academy LMS & Course Catalog',
-    client: 'KarierDigital Academy',
+    title: 'Islamic Boarding School & Da\'wah Education Portal',
+    client: 'Yayasan Bina Insan Kamil',
     description: {
-      id: 'Platform pembelajaran digital untuk kursus karir teknologi dengan video player adaptif, kuis interaktif, dan sertifikat otomatis.',
-      en: 'Digital learning platform for tech career bootcamps with adaptive video streaming, interactive quizzes, and automated certificate issuance.'
+      id: 'Pengembangan portal web terpadu untuk Pesantren & Yayasan Bina Insan Kamil berbasis WordPress dan LiteSpeed Cache, menyajikan pusat kajian Islam tematik, program pesantren wirausaha, rubrik konsultasi syariah, serta sistem donasi & filantropi BIK Peduli.',
+      en: 'Integrated web portal development for Pesantren & Yayasan Bina Insan Kamil powered by WordPress and LiteSpeed Cache, featuring thematic Islamic study hubs, entrepreneurial boarding school programs, Sharia legal consultations, and BIK Peduli charitable donation drives.'
     },
-    thumbnail: '/images/portfolio/web-edutech.svg',
-    url: 'https://karierdigital.example.id',
-    techStack: ['Laravel', 'Livewire', 'Alpine.js', 'Tailwind CSS'],
+    thumbnail: '/images/portfolio/pesantrenbik.png',
+    url: 'https://pesantrenbik.com/',
+    techStack: ['Wordpress', 'Litespeed', 'Cloudflare'],
     metrics: [
-      { label: 'Course Completion', value: '+45%' },
-      { label: 'Active Students', value: '15,000+' }
+      { label: 'Monthly Readers', value: '85,000+' },
+      { label: 'Page Load Speed', value: '0.9s' }
     ],
     year: '2021',
     featured: false
