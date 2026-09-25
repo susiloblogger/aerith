@@ -82,20 +82,20 @@ export const portfolioData: PortfolioItem[] = [
     featured: false
   },
   {
-    id: 'web-healthcare-telemedicine',
+    id: 'web-branels-interior-studio',
     category: 'website',
-    title: 'Healthcare Clinic Booking & Teleconsultation Web App',
-    client: 'Klinik Sehat Utama',
+    title: 'Luxury Interior Design & Architecture Studio Portfolio',
+    client: 'Branels Studio',
     description: {
-      id: 'Aplikasi web reservasi janji temu dokter spesialis dan integrasi riwayat konsultasi medis yang aman serta responsif di semua perangkat.',
-      en: 'Doctor appointment reservation and medical consultation history web application optimized for security and responsive user experience.'
+      id: 'Pengembangan website portofolio interaktif dan elegan untuk studio arsitektur, desain interior, dan turnkey build mewah (Branels Studio), menampilkan galeri proyek residensial beresolusi tinggi, modal detail interaktif, tipografi editorial elegan, dan performa tinggi berbasis Astro.',
+      en: 'Interactive, editorial luxury portfolio website development for an architecture, interior design, and turnkey build studio (Branels Studio), featuring high-resolution residential project galleries, interactive detail modals, refined editorial typography, and high-performance Astro architecture.'
     },
-    thumbnail: '/images/portfolio/web-healthcare.svg',
-    url: 'https://kliniksehat.example.id',
-    techStack: ['React', 'Node.js', 'Express', 'Tailwind CSS'],
+    thumbnail: '/images/portfolio/branels.png',
+    url: 'https://branels.vercel.app/',
+    techStack: ['Astro', 'Tailwind CSS', 'TypeScript'],
     metrics: [
-      { label: 'Online Bookings', value: '+140%' },
-      { label: 'Load Time', value: '0.8s' }
+      { label: 'Page Speed', value: '99/100' },
+      { label: 'Project Inquiries', value: '+120%' }
     ],
     year: '2023',
     featured: false
