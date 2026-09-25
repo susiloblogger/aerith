@@ -7,12 +7,18 @@ interface Props {
 }
 
 const { currentLang = 'id' } = Astro.props;
+
+// Determine matching route for language switcher
+const pathname = Astro.url.pathname;
+const isPortfolio = pathname.includes('/portfolio');
+const targetIdUrl = isPortfolio ? '/portfolio' : '/';
+const targetEnUrl = isPortfolio ? '/en/portfolio' : '/en/';
 ---
 
 <div class="inline-flex items-center h-9 p-0.5 rounded-xl bg-slate-100 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700/60 shadow-xs" id="lang-toggle-container">
   <!-- Indonesian Option -->
   <a
-    href="/"
+    href={targetIdUrl}
     id="lang-btn-id"
     title="Bahasa Indonesia"
     class={`lang-switch-link flex items-center justify-center gap-1 h-full px-2.5 rounded-lg text-xs font-bold transition-all ${
@@ -27,7 +33,7 @@ const { currentLang = 'id' } = Astro.props;
 
   <!-- English Option -->
   <a
-    href="/en/"
+    href={targetEnUrl}
     id="lang-btn-en"
     title="English"
     class={`lang-switch-link flex items-center justify-center gap-1 h-full px-2.5 rounded-lg text-xs font-bold transition-all ${

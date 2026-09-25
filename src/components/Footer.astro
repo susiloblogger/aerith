@@ -10,6 +10,10 @@ const { currentLang = 'id' } = Astro.props;
 const tNav = translations[currentLang].nav;
 const t = translations[currentLang].footer;
 const currentYear = new Date().getFullYear();
+
+const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '/en' || Astro.url.pathname === '/en/';
+const homeBase = currentLang === 'en' ? '/en/' : '/';
+const portfolioUrl = currentLang === 'en' ? '/en/portfolio' : '/portfolio';
 ---
 
 <footer class="border-t border-slate-200 dark:border-slate-800/80 bg-slate-100 dark:bg-[#05070B] py-12 relative z-10 no-print transition-colors">
@@ -28,12 +32,13 @@ const currentYear = new Date().getFullYear();
 
       <!-- Quick Section Links -->
       <div class="flex flex-wrap items-center justify-center gap-4 text-xs font-medium text-slate-600 dark:text-slate-400">
-        <a href="#about" class="hover:text-slate-900 dark:hover:text-white transition-colors">{tNav.about}</a>
-        <a href="#skills" class="hover:text-slate-900 dark:hover:text-white transition-colors">{tNav.proficiencies}</a>
-        <a href="#experience" class="hover:text-slate-900 dark:hover:text-white transition-colors">{tNav.experience}</a>
-        <a href="#certifications" class="hover:text-slate-900 dark:hover:text-white transition-colors">{tNav.certifications}</a>
-        <a href="#education" class="hover:text-slate-900 dark:hover:text-white transition-colors">{tNav.education}</a>
-        <a href="#contact" class="hover:text-slate-900 dark:hover:text-white transition-colors">{tNav.contact}</a>
+        <a href={isHome ? '#about' : `${homeBase}#about`} class="hover:text-slate-900 dark:hover:text-white transition-colors">{tNav.about}</a>
+        <a href={isHome ? '#skills' : `${homeBase}#skills`} class="hover:text-slate-900 dark:hover:text-white transition-colors">{tNav.proficiencies}</a>
+        <a href={isHome ? '#experience' : `${homeBase}#experience`} class="hover:text-slate-900 dark:hover:text-white transition-colors">{tNav.experience}</a>
+        <a href={portfolioUrl} class="hover:text-slate-900 dark:hover:text-white transition-colors">{tNav.portfolio}</a>
+        <a href={isHome ? '#certifications' : `${homeBase}#certifications`} class="hover:text-slate-900 dark:hover:text-white transition-colors">{tNav.certifications}</a>
+        <a href={isHome ? '#education' : `${homeBase}#education`} class="hover:text-slate-900 dark:hover:text-white transition-colors">{tNav.education}</a>
+        <a href={isHome ? '#contact' : `${homeBase}#contact`} class="hover:text-slate-900 dark:hover:text-white transition-colors">{tNav.contact}</a>
       </div>
 
       <!-- Back to Top button -->

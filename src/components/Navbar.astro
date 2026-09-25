@@ -11,13 +11,18 @@ interface Props {
 const { currentLang = 'id' } = Astro.props;
 const t = translations[currentLang].nav;
 
+const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '/en' || Astro.url.pathname === '/en/';
+const homeBase = currentLang === 'en' ? '/en/' : '/';
+const portfolioUrl = currentLang === 'en' ? '/en/portfolio' : '/portfolio';
+
 const navItems = [
-  { href: '#about', num: '01', label: t.about, icon: '👤' },
-  { href: '#skills', num: '02', label: t.proficiencies, icon: '⚡' },
-  { href: '#experience', num: '03', label: t.experience, icon: '💼' },
-  { href: '#certifications', num: '04', label: t.certifications, icon: '🎓' },
-  { href: '#education', num: '05', label: t.education, icon: '📚' },
-  { href: '#contact', num: '06', label: t.contact, icon: '✉️' },
+  { href: isHome ? '#about' : `${homeBase}#about`, num: '01', label: t.about, icon: '👤' },
+  { href: isHome ? '#skills' : `${homeBase}#skills`, num: '02', label: t.proficiencies, icon: '⚡' },
+  { href: isHome ? '#experience' : `${homeBase}#experience`, num: '03', label: t.experience, icon: '💼' },
+  { href: portfolioUrl, num: '04', label: t.portfolio, icon: '📁' },
+  { href: isHome ? '#certifications' : `${homeBase}#certifications`, num: '05', label: t.certifications, icon: '🎓' },
+  { href: isHome ? '#education' : `${homeBase}#education`, num: '06', label: t.education, icon: '📚' },
+  { href: isHome ? '#contact' : `${homeBase}#contact`, num: '07', label: t.contact, icon: '✉️' },
 ];
 ---
 
