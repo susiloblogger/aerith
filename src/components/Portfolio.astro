@@ -206,7 +206,7 @@ const homeUrl = currentLang === 'en' ? '/en/' : '/';
             class="portfolio-card glass-card rounded-2xl border border-slate-200/80 dark:border-white/5 overflow-hidden group reveal-on-scroll flex flex-col justify-between"
           >
             <div>
-              {item.thumbnail ? (
+              {item.category === 'website' && item.thumbnail ? (
                 <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-100 dark:bg-slate-900 border-b border-slate-200/80 dark:border-white/5">
                   <img 
                     src={item.thumbnail} 
@@ -214,7 +214,6 @@ const homeUrl = currentLang === 'en' ? '/en/' : '/';
                     loading="lazy"
                     class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />
-                  <!-- Floating Category Badge on Thumbnail -->
                   <div class="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-lg backdrop-blur-md bg-slate-900/80 text-white text-[11px] font-bold border border-white/15 shadow-sm">
                     <span>{config.icon}</span>
                     <span>{config.label}</span>
@@ -227,7 +226,7 @@ const homeUrl = currentLang === 'en' ? '/en/' : '/';
                 </div>
               ) : (
                 <div class="p-5 pb-0 flex items-center justify-between">
-                  <span class={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md text-[11px] font-bold uppercase tracking-wider border ${config.badgeClass}`}>
+                  <span class={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-bold uppercase tracking-wider border ${config.badgeClass}`}>
                     <span>{config.icon}</span>
                     <span>{config.label}</span>
                   </span>
@@ -239,8 +238,8 @@ const homeUrl = currentLang === 'en' ? '/en/' : '/';
                 </div>
               )}
 
-              <!-- Card Body -->
-              <div class="p-5">
+              {/* Card Body */}
+              <div class={item.category === 'website' && item.thumbnail ? "p-5" : "p-5 pt-3"}>
                 <!-- Title -->
                 <h2 class={`text-base sm:text-lg font-bold text-slate-900 dark:text-white ${config.titleHoverClass} transition-colors mb-1.5 leading-snug`}>
                   {item.title}

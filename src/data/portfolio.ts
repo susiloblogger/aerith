@@ -188,7 +188,6 @@ export const portfolioData: PortfolioItem[] = [
       id: 'Transformasi menyeluruh strategi digital marketing yang menggabungkan restrukturisasi SEO teknis, paid funnel optimasi, dan automasi retensi email.',
       en: 'Full-scale digital growth turnaround combining technical SEO restructuring, paid acquisition funnel overhaul, and automated email retention.'
     },
-    thumbnail: '/images/portfolio/case-growth.jpg',
     url: 'https://example.com/case-studies/modanusa',
     techStack: ['Google Analytics 4', 'BigQuery', 'Looker Studio', 'Klaviyo'],
     metrics: [
@@ -207,7 +206,6 @@ export const portfolioData: PortfolioItem[] = [
       id: 'Penyelidikan mendalam atribusi saluran berbayar, eliminasi bot click fraud pada Google Ads, dan pembenahan funnel registrasi pinjaman.',
       en: 'In-depth paid channel attribution audit, click-fraud mitigation on Google Ads, and full friction elimination across borrower application funnels.'
     },
-    thumbnail: '/images/portfolio/case-fintech.jpg',
     url: 'https://example.com/case-studies/danaamanah',
     techStack: ['Google Ads', 'AppsFlyer', 'Looker Studio', 'Mixpanel'],
     metrics: [
@@ -226,7 +224,6 @@ export const portfolioData: PortfolioItem[] = [
       id: 'Modernisasi kampanye donasi online melalui Google Ad Grants, optimalisasi UX donasi 1-klik, dan storytelling konten multi-kanal.',
       en: 'Modernization of online donor acquisition leveraging Google Ad Grants, 1-click donation UX redesign, and multi-channel impact storytelling.'
     },
-    thumbnail: '/images/portfolio/case-ngo.jpg',
     url: 'https://example.com/case-studies/yayasan-bina-kasih',
     techStack: ['Google Ad Grants', 'GA4', 'Meta Ads', 'WordPress'],
     metrics: [
@@ -245,7 +242,6 @@ export const portfolioData: PortfolioItem[] = [
       id: 'Penyusunan playbook demand generation inbound B2B dengan konten gated bernilai tinggi, LinkedIn Ads targeting berbasis persona, dan scoring lead otomatis.',
       en: 'Development of an inbound B2B demand generation playbook utilizing high-value gated content, persona-driven LinkedIn campaigns, and lead scoring.'
     },
-    thumbnail: '/images/portfolio/case-saas.jpg',
     url: 'https://example.com/case-studies/cloudhr',
     techStack: ['HubSpot CRM', 'LinkedIn Ads', 'SEMrush', 'GA4'],
     metrics: [
@@ -264,7 +260,6 @@ export const portfolioData: PortfolioItem[] = [
       id: 'Integrasi kampanye iklan berbasis radius geofencing dengan sistem CRM dealer untuk meningkatkan kehadiran test drive showroom mobil.',
       en: 'Integration of hyper-local radius geofencing ads with dealership CRM systems to drive physical showroom visits and verified test drive bookings.'
     },
-    thumbnail: '/images/portfolio/case-automotive.jpg',
     url: 'https://example.com/case-studies/mitra-motor',
     techStack: ['Google Ads', 'Meta Ads', 'Salesforce CRM', 'Google Data Studio'],
     metrics: [
@@ -283,7 +278,6 @@ export const portfolioData: PortfolioItem[] = [
       id: 'Peluncuran merek produk kesehatan baru melalui strategi micro-influencer terukur, TikTok challenge, dan retargeting marketplace terintegrasi.',
       en: 'Go-to-market brand launch for an organic FMCG product utilizing performance-driven micro-influencer campaigns and marketplace retargeting.'
     },
-    thumbnail: '/images/portfolio/case-fmcg.jpg',
     url: 'https://example.com/case-studies/nutridaily',
     techStack: ['TikTok Ads', 'Meta Ads', 'Shopee Ads', 'GA4'],
     metrics: [
@@ -306,7 +300,6 @@ export const portfolioData: PortfolioItem[] = [
       id: 'Audit komprehensif 100.000+ halaman URL, pembersihan canonical loops, optimasi struktur internal linking, dan pemulihan traffic setelah Google Core Update.',
       en: 'Comprehensive audit of 100k+ pages, canonical loops fix, internal architecture restructuring, and full traffic recovery after Google Core Update.'
     },
-    thumbnail: '/images/portfolio/seo-audit.jpg',
     url: 'https://example.com/seo/mediawarta',
     techStack: ['Screaming Frog', 'Google Search Console', 'BigQuery', 'Ahrefs'],
     metrics: [
@@ -325,7 +318,6 @@ export const portfolioData: PortfolioItem[] = [
       id: 'Optimalisasi Google Business Profile terintegrasi untuk 35 cabang klinik gigi di 5 kota besar, skema local business terstruktur, dan strategi ulasan otomatis.',
       en: 'Multi-location Google Business Profile optimization across 35 dental clinics in 5 major cities with local schema and automated review generation.'
     },
-    thumbnail: '/images/portfolio/seo-local.jpg',
     url: 'https://example.com/seo/dentalcare',
     techStack: ['Google Business Profile', 'Schema.org', 'BrightLocal', 'Google Search Console'],
     metrics: [
@@ -344,7 +336,6 @@ export const portfolioData: PortfolioItem[] = [
       id: 'Pembenahan parameter faceted filter katalog e-commerce untuk menghemat crawl budget bot Google dan meningkatkan peringkat kategori produk unggulan.',
       en: 'Optimization of faceted category navigation filters to conserve search bot crawl budget and elevate product taxonomy ranking authority.'
     },
-    thumbnail: '/images/portfolio/seo-ecommerce.jpg',
     url: 'https://example.com/seo/elektronikhub',
     techStack: ['Screaming Frog', 'Google Search Console', 'SEMrush', 'Next.js'],
     metrics: [
@@ -363,7 +354,6 @@ export const portfolioData: PortfolioItem[] = [
       id: 'Perancangan arsitektur konten semantik seputar instrumen reksa dana, obligasi, dan saham guna mendominasi SERP finansial berbobot tinggi.',
       en: 'Engineering semantic topic clusters and educational content silos regarding mutual funds and stocks to capture high-intent financial keywords.'
     },
-    thumbnail: '/images/portfolio/seo-content.jpg',
     url: 'https://example.com/seo/investpintar',
     techStack: ['SurferSEO', 'Ahrefs', 'Google Search Console', 'WordPress'],
     metrics: [
@@ -382,7 +372,6 @@ export const portfolioData: PortfolioItem[] = [
       id: 'Implementasi penandaan hreflang 4 bahasa (EN, ID, FR, RU), penanganan geo-targeting ccTLD, dan optimasi kecepatan server CDN global.',
       en: 'Technical 4-language hreflang implementation, international ccTLD geo-targeting, and global CDN edge optimization for international tourists.'
     },
-    thumbnail: '/images/portfolio/seo-international.jpg',
     url: 'https://example.com/seo/baliexotic',
     techStack: ['Schema.org', 'Cloudflare CDN', 'Google Search Console', 'Ahrefs'],
     metrics: [
@@ -401,7 +390,6 @@ export const portfolioData: PortfolioItem[] = [
       id: 'Pembangunan 5.000+ landing page destinasi wisata otomatis berbasis database dengan template dinamis berkecepatan tinggi dan data schema kaya.',
       en: 'Automated database-driven generation of 5,000+ destination landing pages with fast schema markup and optimized long-tail query targeting.'
     },
-    thumbnail: '/images/portfolio/seo-programmatic.jpg',
     url: 'https://example.com/seo/jelajahnusantara',
     techStack: ['Next.js', 'PostgreSQL', 'Screaming Frog', 'Schema.org'],
     metrics: [
@@ -420,7 +408,6 @@ export const portfolioData: PortfolioItem[] = [
       id: 'Strategi pemindahan domain dan CMS tanpa kehilangan trafik organik melalui pemetaan redirect 301 presisi dan uji coba staging mendalam.',
       en: 'Zero-downtime, zero-traffic-loss enterprise website migration with 1:1 redirect mapping and staging indexation safeguards.'
     },
-    thumbnail: '/images/portfolio/seo-migration.jpg',
     url: 'https://example.com/seo/worksuite',
     techStack: ['Google Search Console', 'Screaming Frog', 'Ahrefs', 'Nginx'],
     metrics: [
@@ -439,7 +426,6 @@ export const portfolioData: PortfolioItem[] = [
       id: 'Optimasi performa teknis portal berita: pengurangan render-blocking CSS/JS, optimasi font swapping, dan pemenuhan standar LCP, FID, dan CLS.',
       en: 'Technical performance tune-up for a high-traffic news portal: render-blocking scripts elimination, font swapping, and CWV compliance.'
     },
-    thumbnail: '/images/portfolio/seo-performance.jpg',
     url: 'https://example.com/seo/kabarharian',
     techStack: ['Google PageSpeed', 'Lighthouse CI', 'Varnish Cache', 'Web Vitals'],
     metrics: [
@@ -462,7 +448,6 @@ export const portfolioData: PortfolioItem[] = [
       id: 'Kampanye Google Search berbasis Intent Tinggi dan Performance Max dengan konfigurasi Offline Conversion Tracking untuk konsultasi hukum premium.',
       en: 'High-intent Google Search and Performance Max campaigns integrated with offline conversion tracking for corporate legal consultations.'
     },
-    thumbnail: '/images/portfolio/ads-google-leads.jpg',
     url: 'https://example.com/ads/solusihukum',
     techStack: ['Google Ads', 'Google Tag Manager', 'HubSpot CRM', 'GA4'],
     metrics: [
@@ -481,7 +466,6 @@ export const portfolioData: PortfolioItem[] = [
       id: 'Skalasi anggaran iklan Meta Ads hingga ratusan juta rupiah per bulan dengan framework pengujian materi kreatif dinamis dan CBO teroptimasi.',
       en: 'Scaling Meta Ads monthly spend profitably using dynamic creative testing frameworks and conversion API server-side tracking.'
     },
-    thumbnail: '/images/portfolio/ads-meta-roas.jpg',
     url: 'https://example.com/ads/glowskin',
     techStack: ['Meta Ads Manager', 'Meta Conversions API', 'Triple Whale', 'Canva'],
     metrics: [
@@ -500,7 +484,6 @@ export const portfolioData: PortfolioItem[] = [
       id: 'Akuisisi pengguna aplikasi keuangan aktif bernilai tinggi melalui Google App Campaigns dengan optimasi event in-app first deposit.',
       en: 'High-LTV financial app user acquisition via Google App Campaigns optimized for in-app first deposit and KYC completion events.'
     },
-    thumbnail: '/images/portfolio/ads-app-installs.jpg',
     url: 'https://example.com/ads/dompetcerdas',
     techStack: ['Google Ads', 'AppsFlyer', 'Firebase Analytics', 'BigQuery'],
     metrics: [
@@ -519,7 +502,6 @@ export const portfolioData: PortfolioItem[] = [
       id: 'Peluncuran kampanye iklan TikTok native menggunakan konten UGC autentik dan Spark Ads yang menghasilkan viralitas penjualan instan di TikTok Shop.',
       en: 'Native TikTok advertising campaign leveraging authentic creator UGC and Spark Ads driving direct checkouts in TikTok Shop.'
     },
-    thumbnail: '/images/portfolio/ads-tiktok.jpg',
     url: 'https://example.com/ads/streetvibe',
     techStack: ['TikTok Ads Manager', 'CapCut Pro', 'TikTok Events API', 'GA4'],
     metrics: [
@@ -538,7 +520,6 @@ export const portfolioData: PortfolioItem[] = [
       id: 'Kampanye ABM presisi menargetkan para CIO dan CTO perusahaan konglomerasi Indonesia dengan konten whitepaper dan lead generation forms native.',
       en: 'Precision Account-Based Marketing campaign targeting enterprise CTOs and CIOs with high-value technical whitepapers and native Lead Gen Forms.'
     },
-    thumbnail: '/images/portfolio/ads-linkedin.jpg',
     url: 'https://example.com/ads/inovasicloud',
     techStack: ['LinkedIn Ads', 'LinkedIn Insight Tag', 'Salesforce CRM', 'Clearbit'],
     metrics: [
@@ -557,7 +538,6 @@ export const portfolioData: PortfolioItem[] = [
       id: 'Penyiapan funnel penargetan ulang multi-saluran terintegrasi (Google Display, Meta Catalog, dan YouTube Video) untuk mengatasi cart abandonment.',
       en: 'Implementation of cross-platform dynamic retargeting across Google Display, Meta Catalog, and YouTube to recover abandoned furniture carts.'
     },
-    thumbnail: '/images/portfolio/ads-retargeting.jpg',
     url: 'https://example.com/ads/megafurniture',
     techStack: ['Google Ads', 'Meta Ads', 'Google Tag Manager', 'Klaviyo'],
     metrics: [
