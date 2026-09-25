@@ -120,21 +120,22 @@ export const portfolioData: PortfolioItem[] = [
     featured: false
   },
   {
-    id: 'web-saas-marketing-platform',
+    id: 'web-id-adventure-event-specialist',
     category: 'website',
-    title: 'SaaS Marketing Automation Platform Website',
-    client: 'AutomateFlow',
+    title: 'Corporate Events & Adventure Specialist Multilingual Portal',
+    client: 'ID Adventure',
     description: {
-      id: 'Landing page SaaS dengan animasi interaktif halus, perbandingan paket harga dinamis, dan sistem orientasi pendaftaran pengguna baru.',
-      en: 'SaaS marketing website featuring smooth micro-animations, dynamic pricing matrix, and seamless user registration onboarding.'
+      id: 'Pengembangan portal web dwibahasa (ID/EN) untuk ID Adventure—spesialis corporate gathering, team building, dan trip petualangan nasional sejak 2002. Dilengkapi perutean bahasa otomatis, katalog layanan interaktif, skema data SEO lokal (JSON-LD), serta integrasi direct WhatsApp booking.',
+      en: 'Multilingual (EN/ID) web portal development for ID Adventure, a corporate event, team building, and adventure expedition specialist since 2002. Features automatic language routing, interactive service filtering, local SEO structured data (JSON-LD), and seamless direct WhatsApp booking integration.'
     },
-    thumbnail: '/images/portfolio/web-saas.svg',
-    url: 'https://automateflow.example.io',
-    techStack: ['Next.js', 'Framer Motion', 'Tailwind CSS', 'TypeScript'],
+    thumbnail: '/images/portfolio/idadventure.png',
+    url: 'https://idadventure.com/',
+    techStack: ['HTML', 'CSS', 'Motion'],
     metrics: [
-      { label: 'Trial Signups', value: '+62%' }
+      { label: 'Organic Inquiries', value: '+145%' },
+      { label: 'Page Speed Score', value: '98/100' }
     ],
-    year: '2022',
+    year: '2025',
     featured: false
   },
   {
