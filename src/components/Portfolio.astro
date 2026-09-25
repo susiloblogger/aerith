@@ -269,28 +269,44 @@ const homeUrl = currentLang === 'en' ? '/en/' : '/';
               </div>
             </div>
 
-            <!-- Card Footer -->
-            <div class="px-5 pb-5 pt-0">
-              <div class="pt-3 border-t border-slate-200/80 dark:border-slate-800/60 flex items-center justify-between text-xs">
-                {item.url ? (
-                  <a 
-                    href={item.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    class={`inline-flex items-center gap-1 font-semibold ${config.linkClass} transition-colors`}
-                  >
-                    <span>{item.category === 'study-case' ? t.viewStudyCase : t.viewProject}</span>
-                    <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                  </a>
-                ) : (
-                  <span class="text-[11px] text-slate-400 dark:text-slate-500 font-medium">
-                    {item.category === 'study-case' ? 'Case Study' : 'Verified Work'}
-                  </span>
-                )}
+              {/* Card Footer */}
+              <div class="px-5 pb-5 pt-0">
+                <div class="pt-3 border-t border-slate-200/80 dark:border-slate-800/60 flex items-center justify-between text-xs">
+                  {item.featured ? (
+                    <span class="inline-flex items-center gap-1 text-[11px] font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider">
+                      ⭐ Featured
+                    </span>
+                  ) : (
+                    <span class="text-[11px] text-slate-400 dark:text-slate-500 font-mono">
+                      {item.year ? `FY ${item.year}` : `ID: ${item.id}`}
+                    </span>
+                  )}
+
+                  {item.category === 'website' && item.url ? (
+                    <a 
+                      href={item.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      class={`inline-flex items-center gap-1 font-semibold ${config.linkClass} transition-colors`}
+                    >
+                      <span>{t.viewProject}</span>
+                      <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
+                  ) : (
+                    <a 
+                      href={`${currentLang === 'en' ? '/en' : ''}/portfolio/${item.id}`} 
+                      class={`inline-flex items-center gap-1 font-semibold ${config.linkClass} transition-colors group/link`}
+                    >
+                      <span>{item.category === 'study-case' ? t.viewStudyCase : t.viewDetail}</span>
+                      <svg class="w-3.5 h-3.5 group-hover/link:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                    </a>
+                  )}
+                </div>
               </div>
-            </div>
           </article>
         );
       })}

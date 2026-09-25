@@ -1,0 +1,401 @@
+---
+import type { PortfolioItem, PortfolioCategory } from '../data/portfolio';
+import { portfolioData } from '../data/portfolio';
+import { type ProjectDetail } from '../data/portfolioDetails';
+import { translations, type Locale } from '../data/i18n';
+
+interface Props {
+  item: PortfolioItem;
+  detail?: ProjectDetail;
+  currentLang?: Locale;
+}
+
+const { item, detail, currentLang = 'id' } = Astro.props;
+const t = translations[currentLang].portfolio;
+const td = translations[currentLang].portfolioDetail;
+
+const homeUrl = currentLang === 'en' ? '/en/' : '/';
+const portfolioUrl = currentLang === 'en' ? '/en/portfolio' : '/portfolio';
+
+// Category Visual Configuration
+const categoryConfig: Record<PortfolioCategory, {
+  icon: string;
+  badgeClass: string;
+  accentGradient: string;
+  borderHover: string;
+  textAccent: string;
+  label: string;
+}> = {
+  'website': {
+    icon: '💻',
+    badgeClass: 'bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border-indigo-500/20',
+    accentGradient: 'from-indigo-500/20 to-transparent',
+    borderHover: 'hover:border-indigo-500/40',
+    textAccent: 'text-indigo-600 dark:text-indigo-400',
+    label: t.categories.website
+  },
+  'study-case': {
+    icon: '📋',
+    badgeClass: 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border-emerald-500/20',
+    accentGradient: 'from-emerald-500/20 to-transparent',
+    borderHover: 'hover:border-emerald-500/40',
+    textAccent: 'text-emerald-600 dark:text-emerald-400',
+    label: t.categories.studyCase
+  },
+  'seo': {
+    icon: '🔍',
+    badgeClass: 'bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 border-cyan-500/20',
+    accentGradient: 'from-cyan-500/20 to-transparent',
+    borderHover: 'hover:border-cyan-500/40',
+    textAccent: 'text-cyan-600 dark:text-cyan-400',
+    label: t.categories.seo
+  },
+  'ads': {
+    icon: '🎯',
+    badgeClass: 'bg-violet-500/10 text-violet-700 dark:text-violet-300 border-violet-500/20',
+    accentGradient: 'from-violet-500/20 to-transparent',
+    borderHover: 'hover:border-violet-500/40',
+    textAccent: 'text-violet-600 dark:text-violet-400',
+    label: t.categories.ads
+  }
+};
+
+const config = categoryConfig[item.category];
+
+// Content resolution with fallback
+const contentLang = detail?.content[currentLang] || detail?.content['id'];
+const overview = contentLang?.overview || item.description[currentLang] || item.description.id;
+const challenge = contentLang?.challenge || overview;
+const strategy = contentLang?.strategy || [];
+const execution = contentLang?.execution || [];
+const results = contentLang?.results || (item.metrics || []).map(m => ({ highlight: m.value, description: m.label }));
+const keyLearnings = contentLang?.keyLearnings;
+const role = detail?.role[currentLang] || detail?.role['id'] || (currentLang === 'en' ? 'Growth & Technical Consultant' : 'Konsultan Pertumbuhan & Teknis');
+const timeline = detail?.timeline[currentLang] || detail?.timeline['id'] || `${item.year || '2024'}`;
+const industry = detail?.industry[currentLang] || detail?.industry['id'] || 'Digital Technology';
+
+// Related items from same category or featured
+const relatedItems = portfolioData
+  .filter(p => p.id !== item.id && (p.category === item.category || p.featured))
+  .slice(0, 3);
+
+// WhatsApp prefilled message
+const waText = encodeURIComponent(
+  currentLang === 'en'
+    ? `Hello Mr. Susilo, I read your case study on "${item.title}" (${item.client}) and would like to discuss a similar project for our company.`
+    : `Halo Pak Susilo, saya membaca studi kasus tentang "${item.title}" (${item.client}) dan tertarik untuk berdiskusi mengenai proyek serupa untuk bisnis kami.`
+);
+const waLink = `https://wa.me/6287785511995?text=${waText}`;
+---
+
+<article class="py-10 sm:py-16 relative">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    {/* Breadcrumbs & Navigation */}
+    <nav aria-label="Breadcrumb" class="mb-8 flex flex-wrap items-center justify-between gap-4 text-xs">
+      <ol class="flex items-center gap-2 text-slate-500 dark:text-slate-400">
+        <li>
+          <a href={homeUrl} class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium">
+            {td.breadcrumbHome}
+          </a>
+        </li>
+        <li class="select-none text-slate-400 dark:text-slate-600">/</li>
+        <li>
+          <a href={portfolioUrl} class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium">
+            {td.breadcrumbPortfolio}
+          </a>
+        </li>
+        <li class="select-none text-slate-400 dark:text-slate-600">/</li>
+        <li class="text-slate-700 dark:text-slate-200 font-semibold truncate max-w-[200px] sm:max-w-xs">
+          {item.title}
+        </li>
+      </ol>
+
+      <a 
+        href={portfolioUrl}
+        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold text-xs border border-slate-200 dark:border-slate-700/60 transition-all hover:border-indigo-500/40"
+      >
+        <span>{td.backToPortfolio}</span>
+      </a>
+    </nav>
+
+    {/* Hero Header Card */}
+    <header class="glass-card rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-white/5 mb-10 relative overflow-hidden">
+      <div class={`absolute -top-24 -right-24 w-80 h-80 bg-gradient-to-br ${config.accentGradient} rounded-full blur-3xl pointer-events-none`}></div>
+      
+      <div class="relative z-10">
+        {/* Top Badges */}
+        <div class="flex flex-wrap items-center gap-2.5 mb-4">
+          <span class={`inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider border ${config.badgeClass}`}>
+            <span>{config.icon}</span>
+            <span>{config.label}</span>
+          </span>
+          {item.year && (
+            <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 text-xs font-mono font-semibold border border-slate-200/80 dark:border-white/5">
+              📅 {item.year}
+            </span>
+          )}
+          {item.featured && (
+            <span class="px-2.5 py-1 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400 text-xs font-bold border border-amber-500/20">
+              ⭐ Featured Case Study
+            </span>
+          )}
+        </div>
+
+        {/* Title */}
+        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-snug mb-4">
+          {item.title}
+        </h1>
+
+        {/* Executive Overview */}
+        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl mb-8">
+          {overview}
+        </p>
+
+        {/* Meta Bento Grid */}
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-slate-200/60 dark:border-white/5">
+          <div class="p-3 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200/50 dark:border-white/5">
+            <span class="block text-[10px] uppercase font-bold tracking-wider text-slate-400 dark:text-slate-500 mb-1">
+              🏢 {td.clientLabel}
+            </span>
+            <span class="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200">
+              {item.client}
+            </span>
+          </div>
+
+          <div class="p-3 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200/50 dark:border-white/5">
+            <span class="block text-[10px] uppercase font-bold tracking-wider text-slate-400 dark:text-slate-500 mb-1">
+              💼 {td.roleLabel}
+            </span>
+            <span class="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200 line-clamp-1" title={role}>
+              {role}
+            </span>
+          </div>
+
+          <div class="p-3 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200/50 dark:border-white/5">
+            <span class="block text-[10px] uppercase font-bold tracking-wider text-slate-400 dark:text-slate-500 mb-1">
+              ⏱️ {td.yearLabel}
+            </span>
+            <span class="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200">
+              {timeline}
+            </span>
+          </div>
+
+          <div class="p-3 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200/50 dark:border-white/5">
+            <span class="block text-[10px] uppercase font-bold tracking-wider text-slate-400 dark:text-slate-500 mb-1">
+              🌐 {td.industryLabel}
+            </span>
+            <span class="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200 line-clamp-1" title={industry}>
+              {industry}
+            </span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    {/* Key Measurable Results Highlights */}
+    {results.length > 0 && (
+      <section class="mb-10">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-4 font-mono">
+          🚀 {td.resultsTitle}
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {results.map((res) => (
+            <div class="glass-card p-5 rounded-2xl border border-slate-200/80 dark:border-white/5 bg-gradient-to-br from-white/80 to-slate-50/50 dark:from-slate-900/80 dark:to-slate-950/80">
+              <div class={`text-2xl sm:text-3xl font-extrabold ${config.textAccent} mb-1.5 tracking-tight`}>
+                {res.highlight}
+              </div>
+              <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                {res.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {/* In-Depth Case Study Content Grid */}
+    <div class="space-y-8 mb-12">
+      
+      {/* 1. Challenge & Problem Statement */}
+      <section class="glass-card rounded-2xl p-6 sm:p-8 border border-slate-200/80 dark:border-white/5">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="flex items-center justify-center w-7 h-7 rounded-lg bg-red-500/10 text-red-600 dark:text-red-400 font-bold text-sm">
+            ⚠️
+          </span>
+          <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+            {td.challengeTitle}
+          </h2>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+          {challenge}
+        </p>
+      </section>
+
+      {/* 2. Strategy & Approach */}
+      {strategy.length > 0 && (
+        <section class="glass-card rounded-2xl p-6 sm:p-8 border border-slate-200/80 dark:border-white/5">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="flex items-center justify-center w-7 h-7 rounded-lg bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 font-bold text-sm">
+              🎯
+            </span>
+            <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+              {td.strategyTitle}
+            </h2>
+          </div>
+          <ul class="space-y-3">
+            {strategy.map((item) => (
+              <li class="flex items-start gap-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                <span class="text-indigo-500 dark:text-indigo-400 font-bold mt-0.5">✓</span>
+                <span class="leading-relaxed">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {/* 3. Technical Execution */}
+      {execution.length > 0 && (
+        <section class="glass-card rounded-2xl p-6 sm:p-8 border border-slate-200/80 dark:border-white/5">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="flex items-center justify-center w-7 h-7 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-bold text-sm">
+              ⚙️
+            </span>
+            <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+              {td.executionTitle}
+            </h2>
+          </div>
+          <ol class="space-y-3">
+            {execution.map((step, idx) => (
+              <li class="flex items-start gap-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                <span class="flex-shrink-0 flex items-center justify-center w-5 h-5 rounded-full bg-slate-200 dark:bg-slate-800 text-[11px] font-mono font-bold text-slate-700 dark:text-slate-300">
+                  {idx + 1}
+                </span>
+                <span class="leading-relaxed">{step}</span>
+              </li>
+            ))}
+          </ol>
+        </section>
+      )}
+
+      {/* 4. Tech Stack & Tooling Badges */}
+      {item.techStack && item.techStack.length > 0 && (
+        <section class="glass-card rounded-2xl p-6 sm:p-8 border border-slate-200/80 dark:border-white/5">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="flex items-center justify-center w-7 h-7 rounded-lg bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-bold text-sm">
+              🛠️
+            </span>
+            <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+              {td.techStackTitle}
+            </h2>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            {item.techStack.map((tech) => (
+              <span class="px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-white/5 text-slate-800 dark:text-slate-200 border border-slate-200/80 dark:border-white/10 shadow-2xs">
+                {tech}
+              </span>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* 5. Key Learnings & Takeaways */}
+      {keyLearnings && (
+        <section class="p-6 sm:p-8 rounded-2xl bg-indigo-500/5 dark:bg-indigo-500/[0.03] border border-indigo-500/20">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-lg">💡</span>
+            <h3 class="text-sm font-bold text-indigo-900 dark:text-indigo-200 uppercase tracking-wide">
+              {td.keyLearningsTitle}
+            </h3>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 italic leading-relaxed">
+            "{keyLearnings}"
+          </p>
+        </section>
+      )}
+
+    </div>
+
+    {/* High-Conversion Inbound CTA Banner */}
+    <section class="glass-card rounded-3xl p-8 sm:p-10 border border-indigo-500/30 text-center relative overflow-hidden mb-16 bg-gradient-to-b from-indigo-500/[0.04] to-transparent">
+      <div class="max-w-xl mx-auto">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-bold uppercase tracking-widest mb-3 border border-indigo-500/20">
+          💼 Growth Collaboration
+        </div>
+        <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white mb-3">
+          {td.ctaTitle}
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+          {td.ctaSubtitle}
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <a 
+            href={waLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold text-xs sm:text-sm shadow-md shadow-emerald-500/20 hover:-translate-y-0.5 transition-all"
+          >
+            <span>💬</span>
+            <span>{td.ctaButtonWa}</span>
+          </a>
+
+          <a 
+            href={`${homeUrl}#contact`}
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-bold text-xs sm:text-sm border border-slate-200 dark:border-slate-700/60 transition-all"
+          >
+            <span>✉️</span>
+            <span>{td.ctaButtonContact}</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    {/* Related Projects Navigation */}
+    {relatedItems.length > 0 && (
+      <section class="border-t border-slate-200 dark:border-slate-800 pt-10">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+            {td.otherProjectsTitle}
+          </h2>
+          <a 
+            href={portfolioUrl}
+            class="text-xs font-semibold text-indigo-600 dark:text-indigo-400 hover:underline"
+          >
+            {td.viewAllProjects} →
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {relatedItems.map((rel) => {
+            const relConfig = categoryConfig[rel.category];
+            const relUrl = `${currentLang === 'en' ? '/en' : ''}/portfolio/${rel.id}`;
+            return (
+              <a 
+                href={relUrl}
+                class="glass-card p-4 rounded-xl border border-slate-200/80 dark:border-white/5 hover:border-indigo-500/40 transition-all group flex flex-col justify-between"
+              >
+                <div>
+                  <span class={`inline-block px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider mb-2 border ${relConfig.badgeClass}`}>
+                    {relConfig.icon} {relConfig.label}
+                  </span>
+                  <h3 class="text-xs sm:text-sm font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors line-clamp-2 mb-1">
+                    {rel.title}
+                  </h3>
+                  <p class="text-[11px] text-slate-500 dark:text-slate-400">
+                    🏢 {rel.client}
+                  </p>
+                </div>
+                <div class="mt-3 pt-2 border-t border-slate-200/60 dark:border-slate-800/60 text-[11px] font-semibold text-indigo-600 dark:text-indigo-400 flex items-center justify-between">
+                  <span>Lihat Detail</span>
+                  <span>→</span>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      </section>
+    )}
+
+  </div>
+</article>

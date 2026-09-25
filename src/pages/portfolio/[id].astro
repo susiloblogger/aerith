@@ -1,0 +1,29 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PortfolioDetail from '../../components/PortfolioDetail.astro';
+import Contact from '../../components/Contact.astro';
+import { portfolioData, type PortfolioItem } from '../../data/portfolio';
+import { getProjectDetail } from '../../data/portfolioDetails';
+
+export function getStaticPaths() {
+  return portfolioData.map((item) => ({
+    params: { id: item.id },
+    props: { item }
+  }));
+}
+
+interface Props {
+  item: PortfolioItem;
+}
+
+const { item } = Astro.props;
+const lang = 'id';
+const detail = getProjectDetail(item.id);
+const pageTitle = `${item.title} — Case Study Susilo Widakdo, ST.`;
+const pageDesc = detail?.content.id.overview || item.description.id;
+---
+
+<Layout lang={lang} title={pageTitle} description={pageDesc}>
+  <PortfolioDetail item={item} detail={detail} currentLang={lang} />
+  <Contact currentLang={lang} />
+</Layout>
