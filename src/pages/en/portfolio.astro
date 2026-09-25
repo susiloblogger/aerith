@@ -1,13 +1,17 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Portfolio from '../../components/Portfolio.astro';
+import Contact from '../../components/Contact.astro';
 import { translations } from '../../data/i18n';
 
 const lang = 'en';
 const t = translations[lang].portfolio;
 ---
 
-<Layout lang={lang} title={`Portfolio — Susilo Widakdo, ST.`} description={t.subtitle}>
+<Layout lang={lang} title={`Portfolio & Projects — Susilo Widakdo, ST.`} description={t.subtitle}>
   <!-- Portfolio Showcase Section -->
   <Portfolio currentLang={lang} />
+
+  <!-- Inbound Contact & Collaboration Section -->
+  <Contact currentLang={lang} />
 </Layout>

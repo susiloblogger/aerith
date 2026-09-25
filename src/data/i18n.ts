@@ -111,7 +111,10 @@ export const translations = {
       backToHome: "← Kembali ke Beranda",
       totalProjects: "Total Proyek",
       projectCount: "proyek",
-      noThumbnail: "Belum ada gambar"
+      noThumbnail: "Belum ada gambar",
+      searchPlaceholder: "Cari proyek, teknologi, atau klien (misal: Astro, Google Ads, BigQuery)...",
+      noResults: "Tidak ada proyek yang sesuai dengan kriteria filter atau pencarian Anda.",
+      resetFilter: "Reset Pencarian & Filter"
     },
     certifications: {
       badge: "Verified Credentials",
@@ -302,7 +305,10 @@ export const translations = {
       backToHome: "← Back to Home",
       totalProjects: "Total Projects",
       projectCount: "projects",
-      noThumbnail: "No image yet"
+      noThumbnail: "No image yet",
+      searchPlaceholder: "Search projects, tech stack, or client (e.g. Astro, Google Ads, BigQuery)...",
+      noResults: "No projects match your current search or filter criteria.",
+      resetFilter: "Reset Search & Filters"
     },
     certifications: {
       badge: "Verified Credentials",
