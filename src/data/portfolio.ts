@@ -25,22 +25,22 @@ export const portfolioData: PortfolioItem[] = [
   // WEBSITE PROJECTS (8 ITEMS)
   // ==========================================
   {
-    id: 'web-fashion-ecommerce',
+    id: 'web-ecofix-facility-services',
     category: 'website',
-    title: 'High-Performance Fashion E-Commerce Platform',
-    client: 'UrbanStyle Indonesia',
+    title: 'Facility Maintenance & Engineering Services Company Profile',
+    client: 'PT Gama Abyakta Sejahtera (Ecofix)',
     description: {
-      id: 'Pengembangan platform e-commerce busana modern dengan arsitektur headless yang cepat, integrasi payment gateway otomatis, serta optimasi Core Web Vitals.',
-      en: 'Development of a fast headless modern fashion e-commerce platform featuring automated payment gateway integrations and Core Web Vitals optimization.'
+      id: 'Pengembangan website company profile modern untuk penyedia jasa engineering & facility maintenance gedung (saluran mampet, grease trap, HVAC, pest control) dengan integrasi Ghost CMS headless, arsitektur Astro ultra-cepat, dan optimasi konversi lead WhatsApp.',
+      en: 'Modern corporate website development for commercial building engineering & facility maintenance services (drain cleaning, grease trap, HVAC, pest control) featuring headless Ghost CMS, ultra-fast Astro architecture, and high-conversion WhatsApp lead capture.'
     },
-    thumbnail: '/images/portfolio/web-fashion.svg',
-    url: 'https://urbanstyle.example.id',
-    techStack: ['Astro', 'TypeScript', 'Tailwind CSS', 'Midtrans API'],
+    thumbnail: '/images/portfolio/ecofix.png',
+    url: 'https://ecofix.id/',
+    techStack: ['Astro', 'TypeScript', 'Tailwind CSS', 'Ghost'],
     metrics: [
       { label: 'Page Speed', value: '99/100' },
       { label: 'Conversion Rate', value: '+48%' }
     ],
-    year: '2024',
+    year: '2026',
     featured: true
   },
   {
