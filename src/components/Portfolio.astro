@@ -8,6 +8,7 @@ interface Props {
 
 const { currentLang = 'id' } = Astro.props;
 const t = translations[currentLang].portfolio;
+const td = translations[currentLang].portfolioDetail;
 
 const categoryConfig: Record<PortfolioCategory, {
   icon: string;
@@ -60,18 +61,27 @@ const homeUrl = currentLang === 'en' ? '/en/' : '/';
 <section id="portfolio" class="py-12 sm:py-20 relative">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <!-- Top Navigation: Back to Home -->
-    <div class="mb-10 reveal-on-scroll flex items-center justify-between">
+    <!-- Top Navigation: Breadcrumbs & Back to Home -->
+    <nav aria-label="Breadcrumb" class="mb-10 reveal-on-scroll flex flex-wrap items-center justify-between gap-4 text-xs">
+      <ol class="flex items-center gap-2 text-slate-500 dark:text-slate-400">
+        <li>
+          <a href={homeUrl} class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium">
+            {td.breadcrumbHome}
+          </a>
+        </li>
+        <li class="select-none text-slate-400 dark:text-slate-600">/</li>
+        <li class="text-slate-800 dark:text-slate-200 font-semibold">
+          {td.breadcrumbPortfolio}
+        </li>
+      </ol>
+
       <a 
         href={homeUrl} 
-        class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800/90 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs sm:text-sm font-semibold border border-slate-200 dark:border-slate-700/60 transition-all hover:border-indigo-500/40"
+        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold text-xs border border-slate-200 dark:border-slate-700/60 transition-all hover:border-indigo-500/40"
       >
         <span>{t.backToHome}</span>
       </a>
-      <span class="text-xs font-mono text-slate-500 dark:text-slate-400">
-        Total: <strong class="text-indigo-600 dark:text-indigo-400">{categoryCounts.all}</strong> {t.projectCount}
-      </span>
-    </div>
+    </nav>
 
     <!-- Section Header -->
     <div class="text-center max-w-3xl mx-auto mb-12 reveal-on-scroll">
