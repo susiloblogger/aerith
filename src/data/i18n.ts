@@ -7,6 +7,7 @@ export const translations = {
       description: "Susilo Widakdo, ST. adalah Growth Lead & Full-Stack Technologist dengan 10+ tahun pengalaman memimpin pertumbuhan digital, SEO, Google Ads, BigQuery data pipelines, serta arsitektur web modern."
     },
     nav: {
+      home: "Home",
       about: "About",
       proficiencies: "Proficiencies",
       experience: "Experience",
@@ -224,6 +225,7 @@ export const translations = {
       description: "Susilo Widakdo, ST. is a Senior Growth Lead & Full-Stack Technologist with 10+ years of experience scaling digital performance, SEO, Google Ads, BigQuery data pipelines, and modern web architectures."
     },
     nav: {
+      home: "Home",
       about: "About",
       proficiencies: "Proficiencies",
       experience: "Experience",

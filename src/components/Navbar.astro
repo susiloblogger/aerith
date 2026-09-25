@@ -16,13 +16,14 @@ const homeBase = currentLang === 'en' ? '/en/' : '/';
 const portfolioUrl = currentLang === 'en' ? '/en/portfolio' : '/portfolio';
 
 const navItems = [
-  { href: isHome ? '#about' : `${homeBase}#about`, num: '01', label: t.about, icon: '👤' },
-  { href: isHome ? '#skills' : `${homeBase}#skills`, num: '02', label: t.proficiencies, icon: '⚡' },
-  { href: isHome ? '#experience' : `${homeBase}#experience`, num: '03', label: t.experience, icon: '💼' },
-  { href: portfolioUrl, num: '04', label: t.portfolio, icon: '📁' },
-  { href: isHome ? '#certifications' : `${homeBase}#certifications`, num: '05', label: t.certifications, icon: '🎓' },
-  { href: isHome ? '#education' : `${homeBase}#education`, num: '06', label: t.education, icon: '📚' },
-  { href: isHome ? '#contact' : `${homeBase}#contact`, num: '07', label: t.contact, icon: '✉️' },
+  { href: isHome ? '#home' : homeBase, num: '01', label: t.home, icon: '🏠' },
+  { href: isHome ? '#about' : `${homeBase}#about`, num: '02', label: t.about, icon: '👤' },
+  { href: isHome ? '#skills' : `${homeBase}#skills`, num: '03', label: t.proficiencies, icon: '⚡' },
+  { href: isHome ? '#experience' : `${homeBase}#experience`, num: '04', label: t.experience, icon: '💼' },
+  { href: portfolioUrl, num: '05', label: t.portfolio, icon: '📁' },
+  { href: isHome ? '#certifications' : `${homeBase}#certifications`, num: '06', label: t.certifications, icon: '🎓' },
+  { href: isHome ? '#education' : `${homeBase}#education`, num: '07', label: t.education, icon: '📚' },
+  { href: isHome ? '#contact' : `${homeBase}#contact`, num: '08', label: t.contact, icon: '✉️' },
 ];
 ---
 

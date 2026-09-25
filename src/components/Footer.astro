@@ -32,6 +32,7 @@ const portfolioUrl = currentLang === 'en' ? '/en/portfolio' : '/portfolio';
 
       <!-- Quick Section Links -->
       <div class="flex flex-wrap items-center justify-center gap-4 text-xs font-medium text-slate-600 dark:text-slate-400">
+        <a href={isHome ? '#home' : homeBase} class="hover:text-slate-900 dark:hover:text-white transition-colors">{tNav.home}</a>
         <a href={isHome ? '#about' : `${homeBase}#about`} class="hover:text-slate-900 dark:hover:text-white transition-colors">{tNav.about}</a>
         <a href={isHome ? '#skills' : `${homeBase}#skills`} class="hover:text-slate-900 dark:hover:text-white transition-colors">{tNav.proficiencies}</a>
         <a href={isHome ? '#experience' : `${homeBase}#experience`} class="hover:text-slate-900 dark:hover:text-white transition-colors">{tNav.experience}</a>
