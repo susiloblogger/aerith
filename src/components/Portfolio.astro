@@ -1,0 +1,295 @@
+---
+import { portfolioData, type PortfolioCategory } from '../data/portfolio';
+import { translations, type Locale } from '../data/i18n';
+
+interface Props {
+  currentLang?: Locale;
+}
+
+const { currentLang = 'id' } = Astro.props;
+const t = translations[currentLang].portfolio;
+
+const categoryConfig: Record<PortfolioCategory, {
+  icon: string;
+  badgeClass: string;
+  titleHoverClass: string;
+  metricValClass: string;
+  linkClass: string;
+  label: string;
+}> = {
+  'website': {
+    icon: '💻',
+    badgeClass: 'bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border-indigo-500/20',
+    titleHoverClass: 'group-hover:text-indigo-600 dark:group-hover:text-indigo-400',
+    metricValClass: 'text-indigo-600 dark:text-indigo-400',
+    linkClass: 'text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300',
+    label: t.categories.website
+  },
+  'study-case': {
+    icon: '📋',
+    badgeClass: 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border-emerald-500/20',
+    titleHoverClass: 'group-hover:text-emerald-600 dark:group-hover:text-emerald-400',
+    metricValClass: 'text-emerald-600 dark:text-emerald-400',
+    linkClass: 'text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300',
+    label: t.categories.studyCase
+  },
+  'seo': {
+    icon: '🔍',
+    badgeClass: 'bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 border-cyan-500/20',
+    titleHoverClass: 'group-hover:text-cyan-600 dark:group-hover:text-cyan-400',
+    metricValClass: 'text-cyan-600 dark:text-cyan-400',
+    linkClass: 'text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300',
+    label: t.categories.seo
+  },
+  'ads': {
+    icon: '🎯',
+    badgeClass: 'bg-violet-500/10 text-violet-700 dark:text-violet-300 border-violet-500/20',
+    titleHoverClass: 'group-hover:text-violet-600 dark:group-hover:text-violet-400',
+    metricValClass: 'text-violet-600 dark:text-violet-400',
+    linkClass: 'text-violet-600 dark:text-violet-400 hover:text-violet-700 dark:hover:text-violet-300',
+    label: t.categories.ads
+  }
+};
+
+const categoryCounts = {
+  all: portfolioData.length,
+  website: portfolioData.filter(p => p.category === 'website').length,
+  'study-case': portfolioData.filter(p => p.category === 'study-case').length,
+  seo: portfolioData.filter(p => p.category === 'seo').length,
+  ads: portfolioData.filter(p => p.category === 'ads').length,
+};
+
+const homeUrl = currentLang === 'en' ? '/en/' : '/';
+---
+
+<section id="portfolio" class="py-12 sm:py-20 relative">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Top Navigation: Back to Home -->
+    <div class="mb-10 reveal-on-scroll">
+      <a 
+        href={homeUrl} 
+        class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800/90 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs sm:text-sm font-semibold border border-slate-200 dark:border-slate-700/60 transition-all hover:border-indigo-500/40"
+      >
+        <span>{t.backToHome}</span>
+      </a>
+    </div>
+
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-14 reveal-on-scroll">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-bold uppercase tracking-widest mb-3 border border-indigo-500/20">
+        {t.badge}
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+        {t.title}<span class="text-gradient-accent">{t.titleAccent}</span>
+      </h1>
+      <p class="text-slate-600 dark:text-slate-400 mt-4 text-sm sm:text-base lg:text-lg leading-relaxed">
+        {t.subtitle}
+      </p>
+
+      <!-- Stats Summary Pills -->
+      <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-6 mt-6">
+        <div class="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/60 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+          <span class="font-extrabold text-indigo-600 dark:text-indigo-400">{categoryCounts.all}</span>
+          <span>{t.totalProjects}</span>
+        </div>
+        <div class="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-medium border border-indigo-500/20">
+          💻 <span>{categoryCounts.website} Web</span>
+        </div>
+        <div class="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-medium border border-emerald-500/20">
+          📋 <span>{categoryCounts['study-case']} Case</span>
+        </div>
+        <div class="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-medium border border-cyan-500/20">
+          🔍 <span>{categoryCounts.seo} SEO</span>
+        </div>
+        <div class="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-violet-500/10 text-violet-600 dark:text-violet-400 text-xs font-medium border border-violet-500/20">
+          🎯 <span>{categoryCounts.ads} Ads</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 mb-12 reveal-on-scroll" id="portfolio-filters">
+      <button 
+        type="button"
+        data-filter="all" 
+        class="portfolio-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-indigo-600 dark:bg-indigo-500 text-white shadow-md shadow-indigo-500/20 transition-all cursor-pointer"
+      >
+        {t.categories.all} ({categoryCounts.all})
+      </button>
+      <button 
+        type="button"
+        data-filter="website" 
+        class="portfolio-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-700/60 transition-all cursor-pointer"
+      >
+        💻 {t.categories.website} ({categoryCounts.website})
+      </button>
+      <button 
+        type="button"
+        data-filter="study-case" 
+        class="portfolio-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-700/60 transition-all cursor-pointer"
+      >
+        📋 {t.categories.studyCase} ({categoryCounts['study-case']})
+      </button>
+      <button 
+        type="button"
+        data-filter="seo" 
+        class="portfolio-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-700/60 transition-all cursor-pointer"
+      >
+        🔍 {t.categories.seo} ({categoryCounts.seo})
+      </button>
+      <button 
+        type="button"
+        data-filter="ads" 
+        class="portfolio-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-700/60 transition-all cursor-pointer"
+      >
+        🎯 {t.categories.ads} ({categoryCounts.ads})
+      </button>
+    </div>
+
+    <!-- Portfolio Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="portfolio-grid">
+      {portfolioData.map((item) => {
+        const config = categoryConfig[item.category];
+        const description = item.description[currentLang] || item.description.id;
+        
+        return (
+          <article 
+            data-category={item.category}
+            class="portfolio-card glass-card rounded-2xl border border-slate-200/80 dark:border-white/5 overflow-hidden group reveal-on-scroll flex flex-col justify-between"
+          >
+            <div>
+              <!-- Card Header: Category Badge + Year -->
+              <div class="p-5 pb-0 flex items-center justify-between">
+                <span class={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md text-[11px] font-bold uppercase tracking-wider border ${config.badgeClass}`}>
+                  <span>{config.icon}</span>
+                  <span>{config.label}</span>
+                </span>
+                {item.year && (
+                  <span class="text-xs font-mono font-semibold text-slate-400 dark:text-slate-500">
+                    {item.year}
+                  </span>
+                )}
+              </div>
+
+              <!-- Card Body -->
+              <div class="p-5">
+                <!-- Title -->
+                <h2 class={`text-base sm:text-lg font-bold text-slate-900 dark:text-white ${config.titleHoverClass} transition-colors mb-1.5 leading-snug`}>
+                  {item.title}
+                </h2>
+
+                <!-- Client -->
+                <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-3 flex items-center gap-1.5">
+                  <span>🏢</span>
+                  <span>{item.client}</span>
+                </p>
+
+                <!-- Description -->
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                  {description}
+                </p>
+
+                <!-- Tech Stack Chips -->
+                {item.techStack && item.techStack.length > 0 && (
+                  <div class="mb-4">
+                    <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-2 font-mono">
+                      {t.techStack}
+                    </div>
+                    <div class="flex flex-wrap gap-1.5">
+                      {item.techStack.map((tech) => (
+                        <span class="px-2 py-0.5 rounded-md text-[11px] font-medium bg-slate-100 dark:bg-white/5 text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-white/5">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                <!-- Quantifiable Metrics -->
+                {item.metrics && item.metrics.length > 0 && (
+                  <div class="grid grid-cols-2 gap-2 pt-2 border-t border-slate-200/60 dark:border-slate-800/60">
+                    {item.metrics.map((metric) => (
+                      <div class="p-2 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/5">
+                        <div class={`text-sm sm:text-base font-extrabold ${config.metricValClass}`}>
+                          {metric.value}
+                        </div>
+                        <div class="text-[10px] text-slate-500 dark:text-slate-400 font-medium truncate">
+                          {metric.label}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <!-- Card Footer -->
+            <div class="px-5 pb-5 pt-0">
+              <div class="pt-3 border-t border-slate-200/80 dark:border-slate-800/60 flex items-center justify-between text-xs">
+                {item.featured ? (
+                  <span class="inline-flex items-center gap-1 text-[11px] font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider">
+                    ⭐ Featured
+                  </span>
+                ) : (
+                  <span class="text-[11px] text-slate-400 dark:text-slate-500">
+                    ID: {item.id}
+                  </span>
+                )}
+                {item.url ? (
+                  <a 
+                    href={item.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class={`inline-flex items-center gap-1 font-semibold ${config.linkClass} transition-colors`}
+                  >
+                    <span>{item.category === 'study-case' ? t.viewStudyCase : t.viewProject}</span>
+                    <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </a>
+                ) : (
+                  <span class="text-[11px] text-slate-400 dark:text-slate-500 font-medium">
+                    {item.category === 'study-case' ? 'Case Study' : 'Internal Project'}
+                  </span>
+                )}
+              </div>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const filterBtns = document.querySelectorAll('.portfolio-filter-btn');
+  const cards = document.querySelectorAll('.portfolio-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Reset all buttons to inactive style
+      filterBtns.forEach(b => {
+        b.classList.remove('bg-indigo-600', 'dark:bg-indigo-500', 'text-white', 'shadow-md', 'shadow-indigo-500/20');
+        b.classList.add('bg-slate-100', 'dark:bg-slate-800/90', 'text-slate-700', 'dark:text-slate-300');
+      });
+      // Set active button style
+      btn.classList.add('bg-indigo-600', 'dark:bg-indigo-500', 'text-white', 'shadow-md', 'shadow-indigo-500/20');
+      btn.classList.remove('bg-slate-100', 'dark:bg-slate-800/90', 'text-slate-700', 'dark:text-slate-300');
+
+      const filter = btn.getAttribute('data-filter');
+
+      // Filter cards
+      cards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        const el = card as HTMLElement;
+        if (filter === 'all' || category === filter) {
+          el.style.display = '';
+        } else {
+          el.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
