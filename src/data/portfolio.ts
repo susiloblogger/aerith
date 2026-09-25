@@ -158,22 +158,22 @@ export const portfolioData: PortfolioItem[] = [
     featured: false
   },
   {
-    id: 'web-culinary-fnb-multistore',
+    id: 'web-mantika-florista-artificial-plants',
     category: 'website',
-    title: 'F&B Multi-Outlet Ordering & Menu Portal',
-    client: 'Nusantara Bistro Chain',
+    title: 'Artificial Plants & Landscape Decoration Showcase',
+    client: 'Group of Karya Mantika Berkah',
     description: {
-      id: 'Sistem web pemesanan meja dan menu digital QR-code untuk jaringan restoran dengan 20+ cabang di berbagai kota besar.',
-      en: 'Digital QR-code menu and table booking web system engineered for a multi-outlet restaurant chain across 20+ locations.'
+      id: 'Pengembangan website katalog dan showcase dekorasi lanskap untuk Mantika Florista (Group of Karya Mantika Berkah)—spesialis tanaman artifisial, pohon sintetis, dan vertical garden untuk kebutuhan residensial, perkantoran, perhotelan, hingga studio siaran televisi.',
+      en: 'Commercial product showcase and landscape decoration website development for Mantika Florista (Group of Karya Mantika Berkah), an artificial plants, faux trees, and biophilic vertical garden specialist serving residential, luxury hospitality, corporate spaces, and broadcast studios.'
     },
-    thumbnail: '/images/portfolio/web-fnb.svg',
-    url: 'https://nusantarabistro.example.id',
-    techStack: ['Vue.js', 'Tailwind CSS', 'Firebase', 'PWA'],
+    thumbnail: '/images/portfolio/mantika.png',
+    url: 'https://mantikaflorista.com/',
+    techStack: ['WordPress', 'Elementor', 'PHP'],
     metrics: [
-      { label: 'Order Processing', value: '-30% Wait Time' },
-      { label: 'Daily Active Users', value: '8,500+' }
+      { label: 'Catalog Inquiries', value: '+135%' },
+      { label: 'Organic Traffic', value: '+210%' }
     ],
-    year: '2020',
+    year: '2017',
     featured: false
   },
 
