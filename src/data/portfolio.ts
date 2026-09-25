@@ -63,22 +63,22 @@ export const portfolioData: PortfolioItem[] = [
     featured: true
   },
   {
-    id: 'web-corporate-fintech-landing',
+    id: 'web-madutava-raw-honey',
     category: 'website',
-    title: 'Fintech Corporate Website & Interactive ROI Calculator',
-    client: 'ModalKarya Solusi',
+    title: 'Premium Raw Honey D2C Brand Showcase & Catalog',
+    client: 'PT Mavca Natways Indonesia (Madu Tava)',
     description: {
-      id: 'Pembaruan desain website korporat tekfin dengan kalkulator pinjaman interaktif dan formulir aplikasi multi-langkah berkoneksi API instan.',
-      en: 'Fintech corporate website redesign featuring an interactive loan calculator and multi-step lead capture funnel with instant API sync.'
+      id: 'Pengembangan situs web brand D2C premium untuk produk madu murni alami (Madu Tava) bersertifikasi BPOM dan Halal MUI, dilengkapi katalog varian nektar interaktif, desain visual elegan berbasis Astro & Tailwind CSS, serta integrasi pemesanan multi-kanal via WhatsApp dan marketplace.',
+      en: 'Direct-to-consumer (D2C) brand showcase and product catalog development for Madu Tava pure raw honey (BPOM & Halal certified), featuring interactive nectar variant selectors, elegant Astro & Tailwind CSS UI architecture, and seamless multi-channel checkout via WhatsApp and marketplaces.'
     },
-    thumbnail: '/images/portfolio/web-fintech.svg',
-    url: 'https://modalkarya.example.com',
-    techStack: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript'],
+    thumbnail: '/images/portfolio/madutava.png',
+    url: 'https://madutava.vercel.app/',
+    techStack: ['Astro', 'Tailwind CSS', 'TypeScript'],
     metrics: [
-      { label: 'Lead Completion', value: '+74%' },
-      { label: 'Bounce Rate', value: '-35%' }
+      { label: 'Mobile Performance', value: '98/100' },
+      { label: 'Checkout Inquiries', value: '+85%' }
     ],
-    year: '2024',
+    year: '2026',
     featured: false
   },
   {
