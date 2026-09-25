@@ -13,6 +13,7 @@ export const translations = {
       certifications: "Certifications",
       education: "Education",
       contact: "Contact",
+      portfolio: "Portfolio",
       contactBtn: "Hubungi Saya",
       printBtn: "PDF / Print",
       status: "Terbuka untuk Peluang",
@@ -90,6 +91,27 @@ export const translations = {
         consulting: "Consulting & NGO",
         academic: "Akademik & Dosen"
       }
+    },
+    portfolio: {
+      badge: "Portfolio & Proyek",
+      title: "Karya ",
+      titleAccent: "Terbaik Saya",
+      subtitle: "Koleksi proyek terpilih yang mencerminkan keahlian saya dalam pengembangan web, SEO, kampanye iklan, dan studi kasus pertumbuhan digital.",
+      categories: {
+        all: "Semua",
+        website: "Website Development",
+        studyCase: "Study Case",
+        seo: "SEO Projects",
+        ads: "Ads Campaign"
+      },
+      viewProject: "Lihat Proyek",
+      viewStudyCase: "Baca Selengkapnya",
+      techStack: "Tech Stack",
+      results: "Hasil",
+      backToHome: "← Kembali ke Beranda",
+      totalProjects: "Total Proyek",
+      projectCount: "proyek",
+      noThumbnail: "Belum ada gambar"
     },
     certifications: {
       badge: "Verified Credentials",
@@ -182,6 +204,7 @@ export const translations = {
       certifications: "Certifications",
       education: "Education",
       contact: "Contact",
+      portfolio: "Portfolio",
       contactBtn: "Get in Touch",
       printBtn: "PDF / Print",
       status: "Open for Opportunities",
@@ -259,6 +282,27 @@ export const translations = {
         consulting: "Consulting & NGO",
         academic: "Academic & Lecturer"
       }
+    },
+    portfolio: {
+      badge: "Portfolio & Projects",
+      title: "Selected ",
+      titleAccent: "Works",
+      subtitle: "A curated collection of projects showcasing my expertise in web development, SEO, ad campaigns, and digital growth case studies.",
+      categories: {
+        all: "All",
+        website: "Website Development",
+        studyCase: "Study Case",
+        seo: "SEO Projects",
+        ads: "Ads Campaign"
+      },
+      viewProject: "View Project",
+      viewStudyCase: "Read More",
+      techStack: "Tech Stack",
+      results: "Results",
+      backToHome: "← Back to Home",
+      totalProjects: "Total Projects",
+      projectCount: "projects",
+      noThumbnail: "No image yet"
     },
     certifications: {
       badge: "Verified Credentials",
