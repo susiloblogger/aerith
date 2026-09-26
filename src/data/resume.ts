@@ -90,7 +90,7 @@ Also, a programmer with advanced knowledge of the modern web and technology to s
     },
     {
       id: "sabili-id",
-      role: "Technology Officer",
+      role: "Technology Lead",
       company: "Sabili.id",
       period: "February 2023 – May 2025",
       type: "tech",
