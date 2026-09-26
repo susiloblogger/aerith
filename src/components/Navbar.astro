@@ -27,27 +27,62 @@ const navItems = [
 ];
 ---
 
-<header class="sticky top-0 z-50 w-full glass-nav backdrop-blur-xl transition-all duration-300 border-b border-slate-200/80 dark:border-white/5">
+<header 
+  id="site-header" 
+  class="sticky top-0 z-50 w-full transition-all duration-300 bg-transparent border-b border-transparent"
+>
   <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16 sm:h-18">
+    <div class="flex items-center justify-between h-16 sm:h-18 gap-4">
       
-      <!-- Left: Hamburger Menu Button (Replaces avatar, name, and status badge) -->
-      <button 
-        id="hamburger-btn" 
-        aria-label="Buka navigasi menu"
-        aria-expanded="false"
-        class="group flex items-center gap-2 h-9 px-3 rounded-xl bg-slate-100/90 dark:bg-slate-800/90 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200/80 dark:border-slate-700/60 text-slate-800 dark:text-slate-100 transition-all font-semibold text-xs shadow-xs focus:outline-none hover:border-indigo-500/40 cursor-pointer shrink-0"
-      >
-        <div class="w-4 h-3 flex flex-col justify-between" id="hamburger-bars">
-          <span class="w-4 h-0.5 bg-current rounded-full transition-all duration-200"></span>
-          <span class="w-3 h-0.5 bg-current rounded-full transition-all duration-200 group-hover:w-4"></span>
-          <span class="w-4 h-0.5 bg-current rounded-full transition-all duration-200"></span>
-        </div>
-        <span class="font-bold tracking-wider uppercase text-[11px] text-slate-700 dark:text-slate-300 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">Menu</span>
-      </button>
+      <!-- Left: Mobile Hamburger Button & Desktop Navigation Links (Rata Kiri) -->
+      <div class="flex items-center">
+        <!-- Mobile/Tablet Hamburger Menu Button (lg:hidden) -->
+        <button 
+          id="hamburger-btn" 
+          aria-label="Buka navigasi menu"
+          aria-expanded="false"
+          class="lg:hidden group flex items-center gap-1.5 sm:gap-2 h-9 px-2.5 sm:px-3 rounded-xl bg-slate-100/90 dark:bg-slate-800/90 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200/80 dark:border-slate-700/60 text-slate-800 dark:text-slate-100 transition-all font-semibold text-xs shadow-xs focus:outline-none hover:border-indigo-500/40 cursor-pointer shrink-0"
+        >
+          <div class="w-4 h-3 flex flex-col justify-between" id="hamburger-bars">
+            <span class="w-4 h-0.5 bg-current rounded-full transition-all duration-200"></span>
+            <span class="w-3 h-0.5 bg-current rounded-full transition-all duration-200 group-hover:w-4"></span>
+            <span class="w-4 h-0.5 bg-current rounded-full transition-all duration-200"></span>
+          </div>
+          <span class="font-bold tracking-wider uppercase text-[11px] text-slate-700 dark:text-slate-300 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">Menu</span>
+        </button>
 
-      <!-- Right Utility Toolbar -->
-      <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+        <!-- Desktop Navigation Links (Capsule / Pill Bar - Rata Kiri) -->
+        <nav 
+          id="desktop-nav"
+          aria-label="Navigasi Desktop"
+          class="hidden lg:flex items-center gap-1 xl:gap-1.5 px-3 py-1.5 rounded-full bg-slate-100/80 dark:bg-slate-900/60 border border-slate-200/70 dark:border-slate-800/80 backdrop-blur-md shadow-xs text-xs xl:text-[13px] font-medium text-slate-600 dark:text-slate-300 shrink-0"
+        >
+          {navItems.map((item) => {
+            const isPortfolioPage = Astro.url.pathname.includes('/portfolio');
+            const isItemPortfolio = item.num === '05';
+            const isActiveRoute = isItemPortfolio && isPortfolioPage;
+            
+            return (
+              <a 
+                href={item.href}
+                data-nav-item={item.num}
+                data-nav-href={item.href}
+                class:list={[
+                  "desktop-nav-link relative px-2.5 xl:px-3 py-1.5 rounded-full transition-all duration-200 whitespace-nowrap hover:text-indigo-600 dark:hover:text-white hover:bg-white/80 dark:hover:bg-white/10",
+                  isActiveRoute 
+                    ? "text-indigo-600 dark:text-indigo-400 bg-white dark:bg-slate-800 font-semibold shadow-xs" 
+                    : ""
+                ]}
+              >
+                {item.label}
+              </a>
+            );
+          })}
+        </nav>
+      </div>
+
+      <!-- Right: Utility Toolbar -->
+      <div class="flex items-center justify-end gap-1.5 sm:gap-2.5 shrink-0">
         
         <!-- Language Switcher (ID / EN) -->
         <LanguageToggle currentLang={currentLang} />
@@ -60,7 +95,7 @@ const navItems = [
           href={resumeData.personal.whatsappUrl} 
           target="_blank" 
           rel="noopener noreferrer"
-          class="hidden sm:inline-flex items-center justify-center h-9 px-3.5 sm:px-4 text-xs sm:text-sm font-semibold rounded-xl bg-gradient-to-r from-indigo-500 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 text-white shadow-md shadow-indigo-500/20 hover:shadow-indigo-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all whitespace-nowrap gap-1.5 shrink-0"
+          class="hidden sm:inline-flex items-center justify-center h-9 px-3 sm:px-3.5 xl:px-4 text-xs sm:text-sm font-semibold rounded-xl bg-gradient-to-r from-indigo-500 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 text-white shadow-md shadow-indigo-500/20 hover:shadow-indigo-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all whitespace-nowrap gap-1.5 shrink-0"
         >
           <span>{t.contactBtn}</span>
           <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -203,4 +238,73 @@ const navItems = [
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeDrawer();
   });
+
+  // Close drawer if screen resized to desktop (>= 1024px)
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 1024) {
+      closeDrawer();
+    }
+  });
+
+  // Header background glass effect on scroll
+  const siteHeader = document.getElementById('site-header');
+  const updateHeaderBg = () => {
+    if (!siteHeader) return;
+    if (window.scrollY > 20) {
+      siteHeader.classList.add('glass-nav', 'shadow-xs');
+      siteHeader.classList.remove('bg-transparent', 'border-transparent');
+    } else {
+      siteHeader.classList.remove('glass-nav', 'shadow-xs');
+      siteHeader.classList.add('bg-transparent', 'border-transparent');
+    }
+  };
+
+  window.addEventListener('scroll', updateHeaderBg, { passive: true });
+  updateHeaderBg();
+
+  // Desktop active link scroll spy
+  const initDesktopScrollSpy = () => {
+    const desktopLinks = document.querySelectorAll<HTMLAnchorElement>('.desktop-nav-link');
+    const sections = document.querySelectorAll<HTMLElement>('section[id]');
+    if (!desktopLinks.length || !sections.length) return;
+
+    if (window.location.pathname.includes('/portfolio')) return;
+
+    const onScroll = () => {
+      const scrollPosition = window.scrollY + 120;
+      let currentSectionId = '';
+
+      sections.forEach((section) => {
+        const top = section.offsetTop;
+        const height = section.offsetHeight;
+        if (scrollPosition >= top && scrollPosition < top + height) {
+          currentSectionId = section.id;
+        }
+      });
+
+      if (!currentSectionId && window.scrollY < 200) {
+        currentSectionId = 'home';
+      }
+
+      desktopLinks.forEach((link) => {
+        const href = link.getAttribute('href') || '';
+        const isMatch =
+          (currentSectionId === 'home' && (href === '#home' || href === '/' || href === '/en/' || href === '')) ||
+          href.endsWith(`#${currentSectionId}`);
+
+        if (isMatch) {
+          link.classList.add('text-indigo-600', 'dark:text-indigo-400', 'bg-white', 'dark:bg-slate-800', 'font-semibold', 'shadow-xs');
+          link.classList.remove('text-slate-600', 'dark:text-slate-300');
+        } else {
+          link.classList.remove('text-indigo-600', 'dark:text-indigo-400', 'bg-white', 'dark:bg-slate-800', 'font-semibold', 'shadow-xs');
+          link.classList.add('text-slate-600', 'dark:text-slate-300');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  };
+
+  initDesktopScrollSpy();
 </script>
